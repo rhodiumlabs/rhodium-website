@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+
+body {
+  font-family: Quicksand;
+
+}
+
+.Site {
+  display: flex;
+  min-height: 98vh;
+  flex-direction: column;
+  width: 900px;
+  margin: auto;
+
+  .logo {
+    font-size: 9em;
+    font-family: 'EB Garamond', serif;
+    color: #193446;
+  }
+}
+
+.Site-content {
+  flex: 1;
+}

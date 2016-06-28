@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Rhodium</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script charset="utf-8">
+    console.log('<% ENV %> ')
+    <% if ENV["RACK_ENV"] == "production" %>
+        var script = "/dist/bundle.js";
+    <% else %>
+        console.warn("Development mode. Make sure to start 'node devServer.js'");
+        var script = "http://" + (location.host || 'localhost').split(':')[0] + ":4000/react-app-bundle.js"
+    <% end %>
+    document.write('<script src="' + script + '"></' + 'script>');
+    </script>
+  </body>
+</html>
