@@ -20,10 +20,10 @@ Make sure you have ruby/bundler and node/npm installed
 
 #Developing (webpack, hotreload, react, etc)
 On one terminal, run the webpack builder
-1.Build client
+
+1. On one terminal, start building the client
 ```
   $ cd client 
-  $ npm install
   $ node devServer.js
 ```
 2. Run server
