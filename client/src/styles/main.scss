@@ -9,16 +9,47 @@ body {
   display: flex;
   min-height: 98vh;
   flex-direction: column;
-  width: 900px;
   margin: auto;
 
   .logo {
     font-size: 9em;
     font-family: 'EB Garamond', serif;
     color: #193446;
+    z-index: 5;
   }
 }
 
 .Site-content {
   flex: 1;
+}
+
+path {
+  opacity:0.4;
+  transform-origin: center bottom;
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+.invisible {
+  opacity: 0.3;
+  transform: rotate(90deg) translateX(-20px) translateY(20px);
+  transition: opacity 900ms ease-in-out, transform 900ms ease-in-out;
+}
+#canvas-pattern {
+  float:left;
+  left: 0;
+}
+.main-app-container {
+  width: 900px;
+  margin:auto;
+}
+ul
+{
+    list-style-type: none;
+}
+#menu ul li{
+  font-family: Montserrat;
+  font-weight: 100;
+  font-size: 2em;
+  margin-top: 0.5em;
+  color: #333;
+  
 }
