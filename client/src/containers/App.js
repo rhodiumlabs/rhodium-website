@@ -12,15 +12,14 @@ export default class App extends Component {
 
     const { counter, actions } = this.props;
     return (
-      <div>
-          <div className="main-app-container">
-            <div className="logo">rhodium</div>
+      <div className="flexbox-container mainpage">
+          <TrianglifyComponent/>
+          <div className="main-app-container" >
+            <div className="logo"><span>rhodium</span>  </div>
+            <div className="logo back"><span>rhodium</span>  </div>
             <div className="tagline">We imagineer cyberphysical 
     experiences of the future.</div>
-          </div>
-          <TrianglifyComponent/>
-          <div className="main-app-container">
-            <div id="menu" style={{marginTop:'-300px', float:'left'}}>
+            <div id="menu">
               <ul>
                 <li>People </li>
                 <li>Our Approach </li>

@@ -6,53 +6,74 @@ import Trianglify from 'trianglify';
 export default class TrianglifyComponent extends Component {
   constructor(props) {
     super(props);
-    this.pattern = Trianglify({ 
-      width: window.innerWidth,
-      height: 400,
-      cell_size: 40,
-      x_colors: 'PuRd',
-      y_colors: 'Purples',
-      variance: 0,
-      stroke_width: 1
-    }).svg();
+    this.resize = this.resize.bind(this);
+    this.createPattern = this.createPattern.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.addEventListener = this.addEventListener.bind(this);
+    window.addEventListener('resize', this.resize);
   }
 
   componentDidMount() {
-    
-    this.canvas.appendChild(this.pattern);
-
-    // Get all pattern polygons.
-    this.polyArray = [].slice.call(this.pattern.children);
-    this.polyArray.map((poly) => {
-
-      poly.classList.add('poly', 'invisible');
-    })
-    // Get polygon coords and hide them.
+    if(!this.mouseEvent)
+      this.mouseEvent = document.addEventListener('mousemove', this.onMouseMove);
+    if(!this.pattern) {
+      setTimeout(()=>this.createPattern(), 500);
+    }
     
   }
 
+  resize() {
+    let self = this;
+    this.polyPoints.forEach((point, i) => {
+       self.polyArray[i].classList.add('invisible');
+     }
+    );
+    setTimeout(()=>{this.createPattern()},500)
+  }
+  createPattern() {
+      if(this.pattern) {
+        this.canvas.removeChild(this.pattern);
+        this.pattern = null;
+        this.polyArray = []
+      } 
+      this.pattern = Trianglify({ 
+        width: window.innerWidth,
+        height: window.innerHeight,
+        cell_size: 40,
+        x_colors: 'BuPu',
+        y_colors: 'RdPu',
+        variance: 50,
+        stroke_width: 1
+      }).svg();
+
+      this.polyArray = [].slice.call(this.pattern.children)
+                        .map((point) => {point.classList.add('invisible'); return point } );
+      this.canvas.appendChild(this.pattern);
+      this.addEventListener(this.polyArray);
+  }
+
   onMouseMove(e) {
+
     let radius = 100;
     let center = {
       x: e.clientX,
       y: e.clientY
     };
 
-    
     let self = this;
     self.polyPoints.forEach((point, i) => {
       
       // Swap if to invert the effect.
       if (self._detectPointInCircle(point, radius, center)) {
         self.polyArray[i].classList.remove('invisible');
-      } else {
-        self.polyArray[i].classList.add('invisible');
+        setTimeout(() => {
+          self.polyArray[i].classList.add('invisible');
+        },1000)
       }
     });
   };
 
   _detectPointInCircle(point, radius, center) {
-
     var xp = point.x;
     var yp = point.y;
 
@@ -65,30 +86,26 @@ export default class TrianglifyComponent extends Component {
 
     return isInside;
   }
-  addEventListener() {
-    if(!this.mouseEvent) {
-      this.polyPoints = this.polyArray.map((poly) => {
-        let rect = poly.getBoundingClientRect();
-        let point = {
-          x: rect.left + rect.width / 2,
-          y: rect.top + rect.height / 2
-        };
+  addEventListener(polyArray) {
+    this.polyPoints = polyArray.map((poly) => {
+      let rect = poly.getBoundingClientRect();
+      let point = {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2
+      };
 
-        return point;
-      });
-      this.mouseEvent = document.addEventListener('mousemove', this.onMouseMove.bind(this));
-    }
+      return point;
+    });
+
       
   }
   
   render() {
     const { counter, actions } = this.props;
     return (
-        <div onMouseEnter={()=> this.addEventListener()}>
         <div id="canvas-pattern"
-          
-          
-          ref={(canvas)=> this.canvas = canvas} />
+
+          ref={(canvas)=> this.canvas = canvas}>
         </div>
     );
   }
