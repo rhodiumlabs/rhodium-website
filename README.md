@@ -32,3 +32,7 @@ On one terminal, run the webpack builder
 2. Run server
 ``` RACK_ENV=production ruby app.rb ```
 
+3. Deploying to heroku
+Create a branch for heroku (for example: heroku_branch)
+Make a commit to add (public/dist/bundle.js) that was generated from step 1  
+```git push heroku heroku_branch:master```
