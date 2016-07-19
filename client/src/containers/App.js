@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Footer from '../components/Footer';
+import Menu from '../components/Menu';
+import * as MenuActions from '../actions/menuActions';
 import TrianglifyComponent from '../components/TrianglifyContainer';
 
 export default class App extends Component {
@@ -10,23 +12,16 @@ export default class App extends Component {
   }
   render() {
 
-    const { counter, actions } = this.props;
+    const { global, menuActions } = this.props;
     return (
-      <div>
-          <div className="main-app-container">
-            <div className="logo">rhodium</div>
-            <div className="tagline">We imagineer cyberphysical 
-    experiences of the future.</div>
-          </div>
+      <div className="flexbox-container mainpage">
+          <Menu open={global.menuOpened} actions={menuActions} />
           <TrianglifyComponent/>
-          <div className="main-app-container">
-            <div id="menu" style={{marginTop:'-300px', float:'left'}}>
-              <ul>
-                <li>People </li>
-                <li>Our Approach </li>
-                <li>Contact </li>
-              </ul>
-            </div>
+          <div className="main-app-container" >
+            <div className="logo" style={{display: global.menuOpened ? 'none': 'block'}} ><span>We imagineer cyber-physical 
+    experiences of the future.</span>  </div>
+            <div className="tagline"></div>
+
           </div>
       </div>
     );
@@ -36,11 +31,11 @@ export default class App extends Component {
 App.propTypes = {};
 
 function mapStateToProps(state) {
-  return {};
+  return {global: state.global};
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {menuActions: bindActionCreators(MenuActions, dispatch)};
 }
 
 export default connect(

@@ -1,55 +1,96 @@
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 
+@font-face {
+  font-family: Spartan;
+  src: url("/league.otf") format("opentype");
+}
 body {
   font-family: Quicksand;
-
+  margin:0;
+  padding:0;
 }
-
+#logo-header {
+  background-image: url("/rh-logo.png");
+    position: fixed;
+    left: 0;
+    width: 95px;
+    height: 120px;
+    background-size: cover;
+}
 .Site {
   display: flex;
-  min-height: 98vh;
+  min-height: 100vh;
   flex-direction: column;
-  margin: auto;
+
 
   .logo {
-    font-size: 9em;
-    font-family: 'EB Garamond', serif;
-    color: #193446;
+    font-size: 3em;
+    font-family: 'Spartan', serif;
+    color: #333;
     z-index: 5;
+    &.back {
+      color: #0e2335;
+      z-index: -100;
+      mix-blend-mode:unset;
+    }
+  }
+  .tagline {
+    color: #193446;
   }
 }
 
 .Site-content {
   flex: 1;
+
 }
 
 path {
-  opacity:0.4;
+  opacity:1;
   transform-origin: center bottom;
-  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+  transform: rotate(0deg) scale(1) translateZ(10px);
+  transition: transform 300ms ease-in-out;
 }
-.invisible {
-  opacity: 0.3;
-  transform: rotate(90deg) translateX(-20px) translateY(20px);
-  transition: opacity 900ms ease-in-out, transform 900ms ease-in-out;
+path.invisible {
+  opacity: 0;
+  transform: scale(0.2) translateZ(-200px);
+  transition: opacity 200ms ease-in-out, transform 300ms ease-in-out;
 }
 #canvas-pattern {
-  float:left;
-  left: 0;
+  position: absolute;
+  z-index: -2;
+  top:0;
+  left:0;
+    margin:0;
+  padding:0;
+
+}
+.flexbox-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+  height: 90vh;
+  margin:0;
+  padding:0;
 }
 .main-app-container {
   width: 900px;
-  margin:auto;
+  margin-left: 5%;
 }
 ul
 {
     list-style-type: none;
 }
-#menu ul li{
-  font-family: Montserrat;
-  font-weight: 100;
-  font-size: 2em;
-  margin-top: 0.5em;
-  color: #333;
-  
+.mainpage {
+
 }
+footer {
+  text-align:right;
+  padding-right:20px;
+}
+
