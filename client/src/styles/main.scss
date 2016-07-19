@@ -1,25 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 
+@font-face {
+  font-family: Spartan;
+  src: url("/league.otf") format("opentype");
+}
 body {
   font-family: Quicksand;
   margin:0;
   padding:0;
 }
-
+#logo-header {
+  background-image: url("/rh-logo.png");
+    position: fixed;
+    left: 0;
+    width: 95px;
+    height: 120px;
+    background-size: cover;
+}
 .Site {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  margin: auto;
+
 
   .logo {
-    position: fixed;
-    top: 12%;
-    font-size: 9em;
-    font-family: 'EB Garamond', serif;
-    color: rgba(255,255,255,0.95);
+    font-size: 3em;
+    font-family: 'Spartan', serif;
+    color: #333;
     z-index: 5;
-    mix-blend-mode: overlay;
     &.back {
       color: #0e2335;
       z-index: -100;
@@ -72,7 +80,7 @@ path.invisible {
 }
 .main-app-container {
   width: 900px;
-  margin:auto;
+  margin-left: 5%;
 }
 ul
 {
@@ -81,18 +89,8 @@ ul
 .mainpage {
 
 }
-#menu {
-  margin-top: 50px;
-  display: inline-block;
+footer {
+  text-align:right;
+  padding-right:20px;
 }
-#menu ul li{
-  font-family: akkurta,Inconsolata,monospace;
-  font-weight: 100;
-  font-size: 1.2em;
-  margin-top: 0.5em;
-  color: #333;
-  &:hover {
-    color:white;
-    cursor:pointer;
-  }
-}
+
