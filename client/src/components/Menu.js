@@ -1,26 +1,26 @@
 import '../styles/menu.scss';
 import React,  { Component, PropTypes } from 'react';
-
+import {Link} from 'react-router';
 export default class Menu extends Component {
   render() {
-    console.log(this.props)
+    let {open, actions} = this.props;
     return (
-      <div id="menu" className={this.props.open ? 'open' : ''}>
-        <div id={'logo-header'}></div>
-        <div id="nav-icon"  onClick={this.props.actions.toggleMenu} >
+      <div id="menu" className={open ? 'open' : ''}>
+        <Link to={'/'} id={'logo-header'} href='/'></Link>
+        <div id="nav-icon"  onClick={actions.toggleMenu} >
           <div></div>
           <div id="disap"></div>
           <div></div>
         </div>
-
-        <div className="open-menu">
-          <ul className="main-menu">
-            <li className="hvr-underline-from-left">Our Aproach</li>
-            <li className="hvr-underline-from-left">People</li>
-            <li className="hvr-underline-from-left">Blog</li>
-            <li className="hvr-underline-from-left">Contact</li>
-          </ul>
-        </div>
+        {open ?
+          <div className="open-menu">
+            <ul className="main-menu" >
+              <li> <Link onClick={actions.toggleMenu} to={'/about'} className="hvr-underline-from-left">Our Aproach </Link></li>
+              <li> <Link onClick={actions.toggleMenu} to={'/people'} className="hvr-underline-from-left">People </Link></li>
+              <li> <a className="hvr-underline-from-left" href="https://blog.rhodium.io">Blog</a></li>
+              <li> <Link onClick={actions.toggleMenu} to={'/contact'} className="hvr-underline-from-left">Contact</Link></li>
+            </ul>
+          </div> : '' }
       </div>
     );
   }

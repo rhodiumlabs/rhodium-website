@@ -114,6 +114,7 @@ export default class TrianglifyComponent extends Component {
           }
 
         }
+ 
 
         this.renderer.render( this.scene, this.camera );
 

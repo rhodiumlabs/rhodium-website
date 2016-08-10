@@ -5,8 +5,11 @@ import { Router, Route, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { configureStore } from './store/configureStore';
 import Root from './containers/Root';
+import Contact from './containers/Contact';
+import People from './containers/People';
+import About from './containers/About';
 import App from './containers/App';
-
+import TypeWriter from 'react-typewriter';
 import './styles/main.scss';
 
 
@@ -20,7 +23,11 @@ const routes = {
   path: '/',
   component: Root,
   indexRoute: { component: App },
-  childRoutes: []
+  childRoutes: [
+    {path:'/contact', component: Contact},
+    {path:'/people', component: People},
+    {path:'/about', component: About}
+  ]
 }
 
 ReactDOM.render(
