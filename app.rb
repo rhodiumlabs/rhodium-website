@@ -5,6 +5,6 @@ configure do
   set :public_folder, 'public'
 end
 
-get '/' do 
+get '*' do 
  erb :index
 end

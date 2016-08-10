@@ -1,9 +1,8 @@
 #menu {
   position: fixed;
   width: 100%;
-  height: 100%;
   top: 0;
-
+  z-index: 200;
 }
 
 #nav-icon {
@@ -47,7 +46,6 @@
     width: 100%;
     margin: auto;
     height: 100%;
-    backgrund-color: rgba(0,0,0,0);
 
 
     ul {
@@ -61,22 +59,28 @@
       opacity:0;
       font-family: 'Spartan', serif;
       li {
-        width: 25%;
+        min-width: 240px;
         padding:0.5em;
         padding-top:5em;
         display: inline-block;
-        background: white;
 
         margin: 4px;
         font-size: 1.2em;
-        &:hover {
+
+        a {
+          text-decoration: none;
+          color: #333;
+          width: 100%;
+        }
+        a:hover {
           cursor:pointer;
         }
       }
     }
   }
 #menu.open {
-  #nav-icon div { background: white; box-shadow: 2px 2px 2px #CCC;}
+  height: 100%;
+  background: rgba(255,255,255, 0.97);
   #nav-icon div:nth-child(2) {
     opacity: 0;
     left: -180px;
@@ -98,7 +102,6 @@
   .open-menu {
 
     transition: background-color 0.2s ease-in;
-    background-color: rgba(0,0,0,0.2);
     ul {
       opacity:1;
       display: inline-block;
@@ -138,3 +141,4 @@
 .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
   right: 0;
 }
+

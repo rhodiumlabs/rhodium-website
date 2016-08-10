@@ -7,7 +7,8 @@ import thunk from 'redux-thunk';
 const logger = createLogger();
 
 const finalCreateStore = compose(
-  applyMiddleware(logger, thunk)
+  applyMiddleware(logger, thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
 
 module.exports = function configureStore(initialState) {
