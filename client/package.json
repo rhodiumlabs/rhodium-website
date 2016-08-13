@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "elemental": "^0.5.14",
+    "gsap": "^1.19.0",
     "react": "~15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
     "react-dom": "^0.14.8",
@@ -52,6 +53,7 @@
     "react-typist": "^0.3.0",
     "redux-thunk": "^1.0.3",
     "three": "^0.79.0",
-    "trianglify": "^0.4.0"
+    "trianglify": "^0.4.0",
+    "velocity-react": "^1.1.5"
   }
 }

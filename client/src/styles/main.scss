@@ -27,7 +27,7 @@ body {
 
 
   .logo {
-    font-size: 3em;
+    font-size: 2.3em;
     font-family: 'Spartan', serif;
     color: #333;
     z-index: 5;
@@ -37,7 +37,19 @@ body {
       mix-blend-mode:unset;
     }
     .alternator {
-      color: $rhodium;
+      text-align: center;
+      color: #C4D4E0;
+      display: inline-block;
+      overflow:hidden;
+      height:1.2em;
+      margin-bottom: -0.27em;
+      ul {
+        margin:0;
+        padding-left:0;
+        li {
+          line-height:50px;
+        }
+      }
     }
   }
   .tagline {
@@ -230,7 +242,9 @@ footer {
     // Letter Glow
 
 .container {
-      max-width: 900px;
+    max-width: 900px;
+    width: 100%;
+    padding-right: 20px;
     margin: auto;
     h1 {
       font-family: 'Spartan', serif;
@@ -240,14 +254,19 @@ footer {
     }
     ul {
       li {
+        text-transform: lowercase;
         .name {
           font-weight:bold;
+          display:inline;
         }
         .title {
           margin-left: 50px;
           opacity: 0.4
         }
-        margin-bottom: 5px;
+        .knowledge {
+          float:right;
+        }
+        margin-bottom: 25px;
         &:before {
           content: ">";
           float: left;
@@ -261,7 +280,7 @@ footer {
           cursor:pointer;
           .title {
             margin-left: 50px;
-            opacity: 1
+            opacity: 1;
           }
           &:before {
             content: ">";

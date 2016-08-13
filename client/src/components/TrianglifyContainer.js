@@ -12,7 +12,7 @@ export default class TrianglifyComponent extends Component {
 
     // construct the position vector here, because if we use 'new' within render,
     // React will think that things have changed when they have not.
-    this.cameraPosition = new THREE.Vector3(0, 0, 5);
+    this.cameraPosition = new THREE.Vector3(0, 0, 0);
     this.animate = this.animate.bind(this);
     this.state = {
       cubeRotation: new THREE.Vector3(),
@@ -34,7 +34,7 @@ export default class TrianglifyComponent extends Component {
 
   componentDidMount() {
         this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 900, 10000 );
-        this.camera.position.z = 2000;
+        this.camera.position.z = 3000;
 
         this.scene = new THREE.Scene();
 
@@ -75,10 +75,13 @@ export default class TrianglifyComponent extends Component {
         this.animate();
   }
 
-  
+  componentWillUnmount() {
+    console.log("unmount")
+    window.cancelAnimationFrame(this.animationFrame);
+  }
   animate() {
 
-      requestAnimationFrame( this.animate );
+      this.animationFrame = requestAnimationFrame( this.animate );
       this.renderThree();
 
   }
@@ -96,7 +99,7 @@ export default class TrianglifyComponent extends Component {
   renderThree() {
 
         this.camera.position.x = 500;
-        this.camera.position.y = 0;
+        this.camera.position.y = -60;
         this.camera.lookAt( this.scene.position );
 
         let i = 0;
