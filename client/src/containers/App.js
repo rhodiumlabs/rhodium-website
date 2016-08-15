@@ -18,7 +18,7 @@ export default class App extends Component {
     return (
       <div className="flexbox-container mainpage">
           <Menu open={global.menuOpened} actions={menuActions} />
-          <TrianglifyComponent/>
+          <TrianglifyComponent />
           <div className="main-app-container" >
             <Tagline/>
             <div className="tagline"></div>

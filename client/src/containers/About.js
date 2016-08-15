@@ -7,8 +7,9 @@ export default class About extends Component {
   render() {
     return (
       <div className="flexbox-container mainpage">
-        <div className="container">
-        <h1>About Us</h1>
+        <div className="container" >
+        <div style={{marginTop:'-120px'}}>
+        <h1>about us</h1>
         <p>We are entering an era powered by a fusion of emerging technologies 
         across the physical and digital domains that have the potential to create 
         unprecedented value. </p>
@@ -17,6 +18,7 @@ export default class About extends Component {
         to develop cyber-physical products and experiences 
         that address systemic and frontline challenges 
         across a range of industries. </p>
+        </div>
 
       <p>We work with clients to develop bespoke innovation 
       strategies that are made tangible and attainable through 

@@ -6,11 +6,13 @@ export default class Menu extends Component {
     let {open, actions} = this.props;
     return (
       <div id="menu" className={open ? 'open' : ''}>
-        <Link to={'/'} id={'logo-header'} onClick={actions.closeMenu}></Link>
-        <div id="nav-icon" onClick={actions.toggleMenu}>
-          <div></div>
-          <div id="disap"></div>
-          <div></div>
+        <div style={{height:'100px', marginBottom:'2em'}}>
+          <Link to={'/'} id={'logo-header'} onClick={actions.closeMenu}></Link>
+          <div id="nav-icon" onClick={actions.toggleMenu}>
+            <div></div>
+            <div id="disap"></div>
+            <div></div>
+          </div>
         </div>
         {open ?
           <div className="open-menu">

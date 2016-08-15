@@ -21,10 +21,10 @@ export default class People extends Component {
           },
           {name: 'Nadim Islam',
           title: 'Co-Founder + Partner',
-          knowledge: 'Full Stack Developer, Data Visualisation, UI/UX'},
+          knowledge: 'Full Stack Developer, Data Visualization, UI/UX'},
           {name: 'Alex Daskalov',
           title: 'Co-Founder + Partner',
-          knowledge: ' Data Science, Medical Technology, Wearables, etc.'},
+          knowledge: ' Blockchain, Medical Technology, Wearables, etc.'},
 
           {name: 'Miti Bhavsar',
           title: 'Associate'},
@@ -39,7 +39,7 @@ export default class People extends Component {
     return (
       <div className="flexbox-container mainpage">
         <div className="container">
-        <ul>
+        <ul className="people">
           {this.peoples.map(people => 
             <li>
               <div className="name">{people.name}</div>

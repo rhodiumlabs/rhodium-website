@@ -16,11 +16,12 @@ export default class Tagline extends Component {
       'designers',
       'linguists', 
       'engineers', 
-      'innovators',
       'programmers', 
+      'innovators',
     ];
 
     this.set2 = [
+      '',
       'run campaigns',
       'make prototypes', 
       'develop wearables', 
@@ -30,12 +31,14 @@ export default class Tagline extends Component {
     ];
 
     this.set3 = [
+      '',
       'banking', 
       'startups',
       'insurance',
       'education', 
       'healthcare', 
-      'nonprofits'
+      'nonprofits',
+      'organizations'
     ];
     this.tlp1 = new TimelineLite();
   }
@@ -65,7 +68,7 @@ export default class Tagline extends Component {
 
 
     this.tlp1
-    .to(this.part3, 0.5, {css:{opacity:0}, delay:0})
+    .to(this.part3, 0.5, {css:{opacity:0}, delay:2})
     .to(this.part2, 0.5, {css:{opacity:0}, delay:0})
     .to(this.part1, 0.5, {css:{opacity:'0'}, delay:0})
     .to(this.finallogo, 1.0, {text:'rhodium.', delay:1, onComplete:()=> {
@@ -102,14 +105,13 @@ export default class Tagline extends Component {
             
             </div>
           </div>
-          <div ref={(ref) => this.part3 = ref} style={{opacity:'0', marginTop:'0.2em'}}>
-          <span> for </span>
-          <div className='alternator'>
+          <div ref={(ref) => this.part3 = ref} style={{opacity:'0'}}>
+          <span> for the future of </span>
+          <div className='alternator' style={{textAlign:'left'}}>
             <ul ref={(ref) => this.box3 = ref}> 
               {this.set3.map(word => <li>{word}</li>)}
             </ul>
           </div>
-          <span> of the future </span>
           </div>
         </div>
       </div>

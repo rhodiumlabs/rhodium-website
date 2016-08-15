@@ -9,6 +9,7 @@ const PUBLIC_DEV_SERVER = `http://${hostname}:${port}/`
 
 config.entry = [
   'webpack-hot-middleware/client?path=' + PUBLIC_DEV_SERVER + "__webpack_hmr",
+  'whatwg-fetch',
   './src/index'
 ]
 config.plugins = [

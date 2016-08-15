@@ -130,7 +130,7 @@ export default class TrianglifyComponent extends Component {
     const height = window.innerHeight; // canvas height
 
 
-    return (<div id={'canvas-pattern'} ref={(ref)=> {this.container = ref}}/>);
+    return (<div id={'canvas-pattern'} style={{marginTop:'4em'}} ref={(ref)=> {this.container = ref}}/>);
   }
 }
 
