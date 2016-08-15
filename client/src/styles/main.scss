@@ -27,7 +27,7 @@ body {
 
 
   .logo {
-    font-size: 3em;
+    font-size: 2.3em;
     font-family: 'Spartan', serif;
     color: #333;
     z-index: 5;
@@ -37,7 +37,20 @@ body {
       mix-blend-mode:unset;
     }
     .alternator {
-      color: $rhodium;
+      text-align: center;
+      color: #C4D4E0;
+      display: inline-block;
+      overflow:hidden;
+      height:1.28em;
+      margin-bottom: -0.315em;
+      ul {
+        margin:0;
+        padding-left:0;
+        li {
+          line-height:50px;
+          min-height:50px;
+        }
+      }
     }
   }
   .tagline {
@@ -74,19 +87,21 @@ path.invisible {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-
   -ms-flex-align: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
 
   align-items: center;
-  height: 90vh;
+  min-height: 90vh;
+
   margin:0;
+  margin-top: 100px;
   padding:0;
 }
 .main-app-container {
   width: 100%;
   margin: 5%;
+  margin-top:-190px;
 }
 ul
 {
@@ -107,11 +122,11 @@ footer {
     overflow:hidden;
     border-radius: 5px;
     .message-area{
-    padding: 20px;
-    height: 40vh;
-    overflow-y: scroll;
-    background: #f4f4f4;
-    margin-top: 0;
+      padding: 20px;
+      height: 40vh;
+      overflow-y: scroll;
+      background: #f4f4f4;
+      margin-top: 0;
     }
     box-shadow: 0px 0px 40px #DDD;
   .message {
@@ -140,6 +155,7 @@ footer {
   .input {
     background: rgba(255,255,255,0.9);
     padding:30px;
+    padding-left:40px;
   }
   input {
       outline: 0;
@@ -148,8 +164,8 @@ footer {
     /* border-bottom: 2px solid #333; */
     font-size: 1em;
     font-weight: 100;
-    padding-left: 1em;
     height: 41px;
+    width: 100%;
   }
 
   .loading {
@@ -230,47 +246,51 @@ footer {
     // Letter Glow
 
 .container {
-      max-width: 900px;
+    max-width: 900px;
+    width: 100%;
+    padding-right: 20px;
     margin: auto;
-    h1 {
-      font-family: 'Spartan', serif;
-    }
     p {
-      font-size: 1.2em;
+      font-size: 1.0em;
     }
-    ul {
-      li {
-        .name {
-          font-weight:bold;
-        }
-        .title {
-          margin-left: 50px;
-          opacity: 0.4
-        }
-        margin-bottom: 5px;
-        &:before {
-          content: ">";
-          float: left;
-          margin-right: 10px;
-          font-size: 0.9em;
+}
+ul.people {
+  li {
+    text-transform: lowercase;
+    .name {
+      font-weight:bold;
+      display:inline;
+    }
+    .title {
+      margin-left: 50px;
+      opacity: 0.4
+    }
+    .knowledge {
+      float:right;
+    }
+    margin-bottom: 25px;
+    &:before {
+      content: ">";
+      float: left;
+      margin-right: 10px;
+      font-size: 0.9em;
 
-            transform:rotate(90deg);
-          position:relative;
-        }
-        &:hover {
-          cursor:pointer;
-          .title {
-            margin-left: 50px;
-            opacity: 1
-          }
-          &:before {
-            content: ">";
-            font-size: 0.9em;
+        transform:rotate(90deg);
+      position:relative;
+    }
+    &:hover {
+      cursor:pointer;
+      .title {
+        margin-left: 50px;
+        opacity: 1;
+      }
+      &:before {
+        content: ">";
+        font-size: 0.9em;
 
-            transform:rotate(0deg);
-            transition: transform 200ms ease-in;
-          }
-        }
+        transform:rotate(0deg);
+        transition: transform 200ms ease-in;
       }
     }
+  }
 }

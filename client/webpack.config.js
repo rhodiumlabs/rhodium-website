@@ -4,10 +4,11 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
+    'whatwg-fetch',
     './src/index'
   ],
   output: {
-    path: path.join(__dirname, '..','public','dist'),
+    path: path.join(__dirname, '..', 'public', 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },

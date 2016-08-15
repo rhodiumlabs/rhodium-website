@@ -3,11 +3,11 @@
 export function writeMessage(message, init=false) {
 
  return dispatch => {
-  var myHeaders = new Headers();
-      myHeaders.append("Authorization", "Bearer 55e0b7af149a47a7b0646ad5c264cba4");
 
-  var myInit = { method: 'GET',
-               headers: myHeaders};
+  let myInit = { 
+      method: 'GET',
+      headers: {"Authorization": "Bearer 55e0b7af149a47a7b0646ad5c264cba4"}
+  };
 
   if(init) {
     dispatch(initialize());

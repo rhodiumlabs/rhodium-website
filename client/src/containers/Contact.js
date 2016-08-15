@@ -21,7 +21,8 @@ export default class Contact extends Component {
   }
 
   componentDidMount() {
-    this.props.chatbotActions.writeMessage('hello', true);
+    let initialMessage = "this is the rhodium chatbot intro text sent on sunday August 14 at 6:26pm";
+    this.props.chatbotActions.writeMessage(initialMessage, true);
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -39,7 +40,7 @@ export default class Contact extends Component {
     const { global,chatbot } = this.props;
     return (
       <div className="flexbox-container mainpage">
-          <div className="main-app-container" >
+          <div className="container" >
             <div className="chatbot">
               <ul ref={(ref) => this.messageArea = ref} className="message-area">
                 <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
