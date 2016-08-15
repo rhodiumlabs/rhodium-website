@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Trianglify from 'trianglify';
 
-import React3 from 'react-three-renderer';
 import THREE from "three-canvas-renderer";
 
 export default class TrianglifyComponent extends Component {
