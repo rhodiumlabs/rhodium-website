@@ -19,23 +19,21 @@ export default class Tagline extends Component {
       'experts',
       'instructors',
       'technologists',
-      'programmers',
       'dreamers',
-      'innovators'
+      'creators'
     ];
 
     this.set2 = [
       '',
-      'craft designs',
+      'design strategies',
       'hack prototypes',
       'build hardware',
       'develop products',
       'engage communities',
-      'run campaigns',
-      'make applications',
-      'code solutions',
-      'create experiences',
-      'reimagine'
+      'create campaigns',
+      'deliver applications',
+      'curate experiences',
+      'uncover possibilities'
     ];
 
     this.set3 = [
@@ -47,7 +45,6 @@ export default class Tagline extends Component {
       'educations',
       'insurance',
       'nonprofits',
-      'enterprises',
       'society',
       'your industry'
     ];
