@@ -42,7 +42,7 @@ export default class Tagline extends Component {
       'banking',
       'startups',
       'healthcare',
-      'educations',
+      'education',
       'insurance',
       'nonprofits',
       'society',
