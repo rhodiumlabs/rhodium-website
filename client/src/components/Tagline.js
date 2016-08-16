@@ -10,42 +10,76 @@ export default class Tagline extends Component {
 
     let self = this;
     this.state = {done:false}
-    
+
     this.set1 = [
+<<<<<<< HEAD
       'artists', 
       'designers',
       'linguists', 
       'engineers', 
       'programmers', 
       'innovators',
+=======
+      'artists',
+      'inventors',
+      'hobbyists',
+      'engineers',
+      'experts',
+      'instructors',
+      'technologists',
+      'programmers',
+      'dreamers',
+      'innovators'
+>>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
     ];
 
     this.set2 = [
       '',
+<<<<<<< HEAD
+=======
+      'craft designs',
+      'hack prototypes',
+      'build hardware',
+      'develop products',
+      'engage communities',
+>>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
       'run campaigns',
-      'make prototypes', 
-      'develop wearables', 
-      'build applications', 
-      'create communities',
-      'develop strategies', 
+      'make applications',
+      'code solutions',
+      'create experiences',
+      'reimagine'
     ];
 
     this.set3 = [
       '',
+<<<<<<< HEAD
       'banking', 
+=======
+      'organizations',
+      'banking',
+>>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
       'startups',
+      'healthcare',
+      'educations',
       'insurance',
+<<<<<<< HEAD
       'education', 
       'healthcare', 
       'nonprofits',
       'organizations'
+=======
+      'nonprofits',
+      'enterprises',
+      'society',
+      'your industry'
+>>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
     ];
     this.tlp1 = new TimelineLite();
   }
   componentDidMount() {
 
-        
-    
+
+
     this.tlp1.to(this.main, 0.5, {css:{opacity:1}, delay:0})
       .to(this.part1, 0.6, {css:{opacity:1}, delay:0});
 
@@ -84,13 +118,13 @@ export default class Tagline extends Component {
   render() {
     return (
      <div className="logo">
-        
+
         <div style={{opacity:'0', textAlign:'center'}}></div>
         <div ref={(ref) => this.main = ref} style={{textAlign:'center', opacity:'0'}}>
-          <span> we are </span> <span ref={(ref) => this.finallogo = ref} ></span> 
+          <span> we are </span> <span ref={(ref) => this.finallogo = ref} ></span>
           <div ref={(ref) => this.part1 = ref} style={{opacity:'0'}}>
             <div className='alternator'>
-              <ul ref={(ref) => this.box1 = ref}>  
+              <ul ref={(ref) => this.box1 = ref}>
                 {this.set1.map(word => <li>{word}</li>)}
               </ul>
             </div>
@@ -101,14 +135,21 @@ export default class Tagline extends Component {
             <div className='alternator' style={{textAlign:'left'}}>
               <ul  ref={(ref) => this.box2 = ref}>
                 {this.set2.map(word => <li>{word}</li>)}
-              </ul>       
-            
+              </ul>
+
             </div>
           </div>
+<<<<<<< HEAD
           <div ref={(ref) => this.part3 = ref} style={{opacity:'0'}}>
           <span> for the future of </span>
           <div className='alternator' style={{textAlign:'left'}}>
             <ul ref={(ref) => this.box3 = ref}> 
+=======
+          <div ref={(ref) => this.part3 = ref} style={{opacity:'0', marginTop:'0.2em'}}>
+          <span> for </span>
+          <div className='alternator'>
+            <ul ref={(ref) => this.box3 = ref}>
+>>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
               {this.set3.map(word => <li>{word}</li>)}
             </ul>
           </div>
