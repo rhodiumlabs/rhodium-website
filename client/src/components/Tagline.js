@@ -12,14 +12,6 @@ export default class Tagline extends Component {
     this.state = {done:false}
 
     this.set1 = [
-<<<<<<< HEAD
-      'artists', 
-      'designers',
-      'linguists', 
-      'engineers', 
-      'programmers', 
-      'innovators',
-=======
       'artists',
       'inventors',
       'hobbyists',
@@ -30,19 +22,15 @@ export default class Tagline extends Component {
       'programmers',
       'dreamers',
       'innovators'
->>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
     ];
 
     this.set2 = [
       '',
-<<<<<<< HEAD
-=======
       'craft designs',
       'hack prototypes',
       'build hardware',
       'develop products',
       'engage communities',
->>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
       'run campaigns',
       'make applications',
       'code solutions',
@@ -52,27 +40,16 @@ export default class Tagline extends Component {
 
     this.set3 = [
       '',
-<<<<<<< HEAD
-      'banking', 
-=======
       'organizations',
       'banking',
->>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
       'startups',
       'healthcare',
       'educations',
       'insurance',
-<<<<<<< HEAD
-      'education', 
-      'healthcare', 
-      'nonprofits',
-      'organizations'
-=======
       'nonprofits',
       'enterprises',
       'society',
       'your industry'
->>>>>>> bda4a5100680ba7e6d4017fee8be5c0c0f9eece3
     ];
     this.tlp1 = new TimelineLite();
   }
@@ -143,7 +120,7 @@ export default class Tagline extends Component {
           <div ref={(ref) => this.part3 = ref} style={{opacity:'0'}}>
           <span> for the future of </span>
           <div className='alternator' style={{textAlign:'left'}}>
-            <ul ref={(ref) => this.box3 = ref}> 
+            <ul ref={(ref) => this.box3 = ref}>
 =======
           <div ref={(ref) => this.part3 = ref} style={{opacity:'0', marginTop:'0.2em'}}>
           <span> for </span>
