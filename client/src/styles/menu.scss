@@ -1,10 +1,23 @@
+$rhodium: #1a3445;
+$yellow:#E9C77B;
+$pink: #E2B42A;
 #menu {
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 200;
+  height: 100px;
+  position: relative;
 }
-
+#logo-header {
+    background-image: url("/rh-logo.png");
+    position: fixed;
+    left: 30px;
+    width: 67px;
+    background-size: contain;
+    height: 67px;
+    top: 30px;
+    transition: all 0.2s ease-in;
+}
 #nav-icon {
   position: fixed;
   width: 35px;
@@ -12,6 +25,7 @@
   cursor: pointer;
   right: 30px;
   top: 40px;
+  z-index: 201;
 }
 
 #nav-icon > div {
@@ -39,37 +53,143 @@
 #nav-icon div:nth-child(3) {
   bottom: 0;
 }
-  .open-menu {
-    height: 100%;
-    left: -100%;
-    top: 5%;
+
+
+@media only screen and (max-device-width: 600px) {
+.Site {
+  .mainpage {
+      min-height: inherit;
+  }
+  .open-menu.open { 
     width: 100%;
+    ul li a { font-size: 0.8em;}
+
+
+
+  }
+
+  .Site .logo {
+    ul li {
+      min-height:23px !important;
+      line-height:23px !important;
+    }
+    font-size: 1em !important;
+  }
+  .people { 
+    .person {
+      width: 100% !important;
+    }
+  }
+  #menu{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    #logo-header {
+        width: 40px;
+        height: 40px;
+              top: 15px;
+        left: 15px;
+
+    }
+    #nav-icon {
+      height:23px;
+      top: 23px;
+      &> div {
+        height: 3px;
+      }
+    }
+    &.scrolled {
+      width: 100%;
+      position: fixed;
+      left: 0;
+      background: $rhodium;
+      height: 56px;
+
+      #logo-header {
+        width: 40px;
+        height: 40px;
+        top: 0px;
+        left: 15px;
+        transition: all 0.2s ease-in;
+        background-image: url("/rh-logo-w.png");
+
+      }
+      #nav-icon {
+        top: 18px;
+      }
+      #nav-icon > div {
+        background: $yellow;
+      }
+    }
+  }
+  .mainpage {
+    padding-top: 130px !important;
+  } 
+  .people .person .profile-head .description {
+
+    top: 0;
+
+    visibile:visible;
+    opacity: 1;
+    left: 100%;
+    width: 100%;
+    height: 143px;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+
+
+}
+}
+
+  .open-menu {
+
+    height: 100%;
+    top: 0;
     margin: auto;
     height: 100%;
+    width: 300px;
+    /* float: right; */
+    right: -350px;
+    position: fixed;
+    background: $rhodium;
+    padding-top: 90px;
+    padding-left: 34px;
+    z-index: -1;
+    transition: opacity 200ms ease-in, right 200ms ease-in;
+    opacity:0;
+    &.open {
+      right: 0;
+      opacity:1;
+      z-index: 200;
+      transition: opacity 200ms ease-in, right 200ms ease-in;
+    }
 
 
     ul {
       width: 100%;
-      display: none;
       padding-top: 2em;
       padding: 0;
       margin: 0;
       margin-left: 5%;
-      margin-top: 10%;
-      opacity:0;
-      font-family: 'Spartan', serif;
+      margin-top: 20%;
       li {
         margin-right: 110px;
         padding:0.5em;
-        display: inline-block;
         
-        margin: 4px;
-        font-size: 1.2em;
-
+        margin: 4px;  
+        font-size: 1.4em;
+        margin-bottom: 0.5em;
         a {
+          display:inline;
           text-decoration: none;
-          color: #333;
+          color: $yellow;
           width: 100%;
+        }
+        a.active:before {
+          right: 0 !important;
         }
         a:hover {
           cursor:pointer;
@@ -78,14 +198,15 @@
     }
   }
 #menu.open {
-  height: 100%;
-  background: rgba(255,255,255, 0.97);
   #nav-icon div:nth-child(2) {
     opacity: 0;
     left: -180px;
     transition: .2s ease-in-out;
 
   }
+    #nav-icon > div {
+      background: $yellow;
+    }
 
   #nav-icon div:nth-child(1) {
     top: 8px;
@@ -98,15 +219,7 @@
     transform: rotate(-135deg);
 
   }
-  .open-menu {
 
-    transition: background-color 0.2s ease-in;
-    ul {
-      opacity:1;
-      display: inline-block;
-      transition: opacity 0.2s ease-in;
-    }
-  }
 }
 /* Underline From Left */
 .hvr-underline-from-left {
@@ -128,8 +241,9 @@
   left: 0;
   right: 100%;
   bottom: 0;
-  background: #2098d1;
-  height: 4px;
+  background: $pink;
+  height: 2px;
+  opacity: 0.7;
   -webkit-transition-property: right;
   transition-property: right;
   -webkit-transition-duration: 0.3s;

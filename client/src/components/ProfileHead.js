@@ -35,7 +35,6 @@ export default class ProfileHead extends Component {
                   backgroundPositionX: `-${167*this.state.pos}px`} : {}
     
     return (
-              <div>
                 <div className='profile-head' ref={(ref) => this.elem = ref} style={style}
                   onClick={()=>this.setState({toggle:!this.state.toggle})}
                 >
@@ -55,13 +54,10 @@ export default class ProfileHead extends Component {
                         <div className="name">{people.name}</div>
                        
                         <div className="title">{people.title}</div>
-                        <div className="knowledge">{people.knowledge}</div>
+                        
 
                       </div>
                 </div>
-
-
-              </div>
     );
   }
 }

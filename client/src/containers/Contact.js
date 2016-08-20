@@ -41,6 +41,8 @@ export default class Contact extends Component {
     return (
       <div className="flexbox-container mainpage">
           <div className="container" >
+            <div className="row">
+            <div className="twelve columns">
             <div className="chatbot">
               <ul ref={(ref) => this.messageArea = ref} className="message-area">
                 <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
@@ -62,6 +64,8 @@ export default class Contact extends Component {
                   onChange={(e) => this.setState({userInput: e.target.value})} 
                   placeholder="Type a message..."  /></form>
               </div>
+            </div>
+          </div>
             </div>
           </div>
       </div>

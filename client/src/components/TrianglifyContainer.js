@@ -32,7 +32,7 @@ export default class TrianglifyComponent extends Component {
   }
 
   componentDidMount() {
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 900, 10000 );
+        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / (window.innerHeight*0.8), 900, 10000 );
         this.camera.position.z = 3000;
 
         this.scene = new THREE.Scene();
@@ -69,7 +69,7 @@ export default class TrianglifyComponent extends Component {
         }
         
         this.renderer.setPixelRatio( window.devicePixelRatio );
-        this.renderer.setSize( window.innerWidth, window.innerHeight );
+        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
         this.container.appendChild( this.renderer.domElement );
         this.animate();
   }
@@ -88,10 +88,10 @@ export default class TrianglifyComponent extends Component {
   onWindowResize() {
 
 
-        this.camera.aspect = window.innerWidth / window.innerHeight;
+        this.camera.aspect = window.innerWidth / window.innerHeight*0.8;
         this.camera.updateProjectionMatrix();
 
-        this.renderer.setSize( window.innerWidth, window.innerHeight );
+        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
 
   }
 
@@ -129,7 +129,7 @@ export default class TrianglifyComponent extends Component {
     const height = window.innerHeight; // canvas height
 
 
-    return (<div id={'canvas-pattern'} style={{marginTop:'4em'}} ref={(ref)=> {this.container = ref}}/>);
+    return (<div id={'canvas-pattern'} style={{position: 'fixed', bottom: '0'}} ref={(ref)=> {this.container = ref}}/>);
   }
 }
 

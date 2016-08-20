@@ -16,13 +16,15 @@ export default class App extends Component {
 
     const { global, menuActions } = this.props;
     return (
-      <div className="flexbox-container mainpage">
-          <Menu open={global.menuOpened} actions={menuActions} />
+      <div>
+          
           <TrianglifyComponent />
-          <div className="main-app-container" >
-            <Tagline/>
-            <div className="tagline"></div>
+          <div className="mainpage container">
+            <div className="row">
+              <Tagline/>
+              <div className="tagline"></div>
 
+            </div>
           </div>
       </div>
     );
