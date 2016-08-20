@@ -117,7 +117,7 @@ footer {
 
 
 .chatbot {
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
     overflow:hidden;
     border-radius: 5px;
@@ -254,43 +254,67 @@ footer {
       font-size: 1.0em;
     }
 }
-ul.people {
-  li {
-    text-transform: lowercase;
-    .name {
-      font-weight:bold;
-      display:inline;
-    }
-    .title {
-      margin-left: 50px;
-      opacity: 0.4
-    }
-    .knowledge {
-      float:right;
-    }
-    margin-bottom: 25px;
-    &:before {
-      content: ">";
-      float: left;
-      margin-right: 10px;
-      font-size: 0.9em;
-
-        transform:rotate(90deg);
-      position:relative;
-    }
+.people {
+  .person {
     &:hover {
-      cursor:pointer;
-      .title {
-        margin-left: 50px;
-        opacity: 1;
-      }
-      &:before {
-        content: ">";
-        font-size: 0.9em;
+      transition: all 1s ease;
 
-        transform:rotate(0deg);
-        transition: transform 200ms ease-in;
-      }
     }
+    cursor:pointer;
+    transition: all 1s ease;
+    display:inline-block;
+    width: 20%;
+    margin-bottom:15px;
+      .profile-head {
+      position: relative;
+      bottom: 0;
+      background: #C4D4E0;
+      color: white;
+      font-weight: bold;
+      height: 163px;
+      width:163px;
+      display:inline-block;
+      &:hover {
+
+        box-shadow: inset -163px 0px rgba(251, 191, 57, 0.3);
+        background-position-x: 0 !important;
+        transition: box-shadow 0.2s ease-in;
+        .description {
+          visibility: visible;
+          opacity: 1;
+          transition: visibility 1s, opacity 0.2s linear;
+
+        }
+      }
+      .description {
+        opacity: 0;
+        transition: visibility 1s, opacity 0.1s linear;
+        font-family: 'Quicksand';
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        width: 190%;
+        background: #e9c77b;
+        z-index: 100;
+        padding-left: 29px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        text-transform: lowercase;
+        color: #333;
+        .name {
+          font-weight: bold;
+        }
+        .title {
+          font-size:small;
+        }
+        .knowledge {
+          font-size: small;
+          margin-top:10px;
+        }
+      }
+
+     }
+
   }
+
 }
