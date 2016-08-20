@@ -68,12 +68,16 @@ $pink: #E2B42A;
 
   }
 
-  .Site .logo {
-    ul li {
-      min-height:23px !important;
-      line-height:23px !important;
+  .logo {
+    ul li p{
+      min-height:2rem;
+      line-height:2rem;
     }
-    font-size: 1em !important;
+    .alternator {
+      height: 3.6rem !important;
+      margin-bottom: -0.6rem !important;
+    }
+    font-size: 2rem !important;
   }
   .people { 
     .person {

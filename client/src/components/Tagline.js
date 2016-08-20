@@ -75,14 +75,13 @@ export default class Tagline extends Component {
       self.tlp1.to(self.box3, 0.2, {css:{y:y}, delay:0.6});
     }
 
-    /*
     self.tlp1
     .to(self.part3, 0.5, {css:{opacity:0}, delay:2})
     .to(self.part2, 0.5, {css:{opacity:0}, delay:0})
     .to(self.part1, 0.5, {css:{opacity:'0'}, delay:0})
     .to(self.finallogo, 1.0, {text:'rhodium.', delay:1, onComplete:()=> {
       self.tlp1.clear();
-    }})*/
+    }})
     }, 0)
 
 
