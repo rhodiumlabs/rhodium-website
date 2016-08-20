@@ -42,5 +42,3 @@ app.listen(port, 'localhost', (err) => {
   }
   console.log(`Listening at ${PUBLIC_DEV_SERVER}`);
 });
-
-
