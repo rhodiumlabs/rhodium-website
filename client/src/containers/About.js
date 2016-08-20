@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 export default class About extends Component {
   render() {
     return (
-      <div className="flexbox-container mainpage">
-        <div className="container" >
-        <div style={{marginTop:'-120px'}}>
-        <h1>about us</h1>
+      <div className="mainpage container ">
+        <div className="row" >
+        <div className="twelve columns" >
+        <h1 style={{marginTop: '2em', marginBottom: '2em'}}>about us</h1>
         <p>We are entering an era powered by a fusion of emerging technologies 
         across the physical and digital domains that have the potential to create 
         unprecedented value. </p>

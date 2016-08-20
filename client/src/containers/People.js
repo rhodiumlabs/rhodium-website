@@ -40,7 +40,7 @@ export default class People extends Component {
   }
   render() {
     return (
-      <div className="flexbox-container mainpage">
+      <div className="mainpage">
         
         <div className="container">
         <h1 style={{marginBottom:'2em'}}>people</h1>
