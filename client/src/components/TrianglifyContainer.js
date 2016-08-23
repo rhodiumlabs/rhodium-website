@@ -32,7 +32,7 @@ export default class TrianglifyComponent extends Component {
   }
 
   componentDidMount() {
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / (window.innerHeight*0.8), 900, 10000 );
+        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / (window.innerHeight), 0.2, 4000 );
         this.camera.position.z = 3000;
 
         this.scene = new THREE.Scene();
@@ -69,13 +69,12 @@ export default class TrianglifyComponent extends Component {
         }
         
         this.renderer.setPixelRatio( window.devicePixelRatio );
-        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
+        this.renderer.setSize( window.innerWidth, window.innerHeight );
         this.container.appendChild( this.renderer.domElement );
         this.animate();
   }
 
   componentWillUnmount() {
-    console.log("unmount")
     window.cancelAnimationFrame(this.animationFrame);
   }
   animate() {
@@ -88,17 +87,17 @@ export default class TrianglifyComponent extends Component {
   onWindowResize() {
 
 
-        this.camera.aspect = window.innerWidth / window.innerHeight*0.8;
+        this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
 
-        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
+        this.renderer.setSize( window.innerWidth, window.innerHeight );
 
   }
 
   renderThree() {
 
-        this.camera.position.x = 500;
-        this.camera.position.y = -60;
+        this.camera.position.x = 200;
+        this.camera.position.y = -500;
         this.camera.lookAt( this.scene.position );
 
         let i = 0;
@@ -109,7 +108,7 @@ export default class TrianglifyComponent extends Component {
 
             let particle = this.particles[ i++ ];
             particle.position.y = ( Math.sin( ( ix + this.count ) * 0.3 ) * 50 ) +
-              ( Math.sin( ( iy + this.count ) * 0.5 ) * 50 )-500;
+              ( Math.sin( ( iy + this.count ) * 0.5 ) * 50 )-1000;
             particle.scale.x = particle.scale.y = ( Math.sin( ( ix + this.count ) * 0.3 ) + 1 ) * 4 +
               ( Math.sin( ( iy + this.count ) * 0.5 ) + 1 ) * 4;
 

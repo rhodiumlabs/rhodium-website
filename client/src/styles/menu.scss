@@ -1,6 +1,6 @@
 $rhodium: #1a3445;
 $yellow:#E9C77B;
-$pink: #E2B42A;
+$pink: #E2B49A;
 #menu {
   width: 100%;
   top: 0;
@@ -110,10 +110,10 @@ $pink: #E2B42A;
       height: 56px;
 
       #logo-header {
-        width: 40px;
-        height: 40px;
-        top: 0px;
-        left: 15px;
+        width: 35px;
+        height: 35px;
+        top: 12px;
+        left: 12px;
         transition: all 0.2s ease-in;
         background-image: url("/rh-logo-w.png");
 
@@ -129,23 +129,32 @@ $pink: #E2B42A;
   .mainpage {
     padding-top: 130px !important;
   } 
-  .people .person .profile-head .description {
+  .people .person .profile-head {
+      &:hover {
+        box-shadow: none;
+      }
+      .description {
+        top: 0;
+        visibility:visible;
+        opacity: 1;
+        left: 100%;
+        width: 100%;
+        height: 143px;
+        margin: 0;
+        padding: 0;
+        padding-left: 20px;
+        padding-top: 20px;
+        background: $pink;
+        color:white;
 
-    top: 0;
-
-    visibile:visible;
-    opacity: 1;
-    left: 100%;
-    width: 100%;
-    height: 143px;
-    margin: 0;
-    padding: 0;
-    padding-left: 20px;
-    padding-top: 20px;
+      }
+    } 
   }
-
-
 }
+
+.Typist {
+      white-space: pre-wrap;
+          text-align: justify;
 }
 
   .open-menu {
@@ -154,7 +163,7 @@ $pink: #E2B42A;
     top: 0;
     margin: auto;
     height: 100%;
-    width: 300px;
+    width: 286px;
     /* float: right; */
     right: -350px;
     position: fixed;

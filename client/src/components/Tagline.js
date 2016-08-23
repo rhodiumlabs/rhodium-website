@@ -98,6 +98,7 @@ export default class Tagline extends Component {
         <div style={{opacity:'0', textAlign:'center'}}></div>
         <div ref={(ref) => this.main = ref} style={{textAlign:'center', opacity:'0'}}>
           <span> we are </span> <span ref={(ref) => this.finallogo = ref} ></span>
+          
           <div ref={(ref) => this.part1 = ref} style={{opacity:'0'}}>
             <div className='alternator'>
               <ul ref={(ref) => this.box1 = ref}>
@@ -124,6 +125,7 @@ export default class Tagline extends Component {
           </div>
           </div>
         </div>
+
       </div>
     );
   }

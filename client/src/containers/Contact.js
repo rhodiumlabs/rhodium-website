@@ -65,7 +65,18 @@ export default class Contact extends Component {
                   placeholder="Type a message..."  /></form>
               </div>
             </div>
-          </div>
+            </div>
+            </div>
+            <div className="row" style={{marginTop: '4rem'}}>
+              <div className="six columns">
+                <h4>Address</h4>
+                <p>7475 Boul Newman,<br/> Montréal QC H8N 1X3, Canada</p>
+              </div>
+              <div className="six columns">
+                <h4>Say hello!</h4>
+                <p>Email us at <a href="mailto:hello@rhodium.io">hello@rhodium.io</a></p>
+
+              </div>
             </div>
           </div>
       </div>
