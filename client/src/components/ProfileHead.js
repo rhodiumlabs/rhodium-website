@@ -11,6 +11,7 @@ export default class ProfileHead extends Component {
       let body = document.body.getBoundingClientRect();
       let elem = this.elem.getBoundingClientRect();
       let mouse = [e.clientX, e.clientY];
+
       let center = [body.left+elem.left+80, body.top+80+elem.top];
       
 
@@ -20,7 +21,9 @@ export default class ProfileHead extends Component {
       this.setState({pos:pos});
   }
   componentDidMount() {
-    document.body.addEventListener('mousemove', this.mousemove, false);
+    if(window.innerWidth >= 500 && window.innerHeight >= 600) {
+      document.body.addEventListener('mousemove', this.mousemove, false);
+    }
 
   }
   componentWillUnmount() {
@@ -31,8 +34,8 @@ export default class ProfileHead extends Component {
     let {people, image} = this.props;
     let style = (image) ? {
                   backgroundImage:'url(/people.jpg)',
-                  backgroundPositionY: `-${167*this.props.pos}px`,
-                  backgroundPositionX: `-${167*this.state.pos}px`} : {}
+                  backgroundPosition: `-${167*this.state.pos}px -${167*this.props.pos}px`
+                } : {}
     
     return (
                 <div className='profile-head' ref={(ref) => this.elem = ref} style={style}

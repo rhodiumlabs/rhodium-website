@@ -75,14 +75,13 @@ export default class Tagline extends Component {
       self.tlp1.to(self.box3, 0.2, {css:{y:y}, delay:0.6});
     }
 
-    /*
     self.tlp1
     .to(self.part3, 0.5, {css:{opacity:0}, delay:2})
     .to(self.part2, 0.5, {css:{opacity:0}, delay:0})
     .to(self.part1, 0.5, {css:{opacity:'0'}, delay:0})
     .to(self.finallogo, 1.0, {text:'rhodium.', delay:1, onComplete:()=> {
       self.tlp1.clear();
-    }})*/
+    }})
     }, 0)
 
 
@@ -99,6 +98,7 @@ export default class Tagline extends Component {
         <div style={{opacity:'0', textAlign:'center'}}></div>
         <div ref={(ref) => this.main = ref} style={{textAlign:'center', opacity:'0'}}>
           <span> we are </span> <span ref={(ref) => this.finallogo = ref} ></span>
+          
           <div ref={(ref) => this.part1 = ref} style={{opacity:'0'}}>
             <div className='alternator'>
               <ul ref={(ref) => this.box1 = ref}>
@@ -125,6 +125,7 @@ export default class Tagline extends Component {
           </div>
           </div>
         </div>
+
       </div>
     );
   }

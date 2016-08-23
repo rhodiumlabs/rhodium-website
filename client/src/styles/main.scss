@@ -29,7 +29,8 @@ body {
 
 
   .logo {
-    font-size: 2.3rem;
+    font-size: 3.2rem;
+    margin-top: -8rem;
     height: 50vh;
     font-family: 'Spartan', serif;
     color: #193446;
@@ -44,16 +45,16 @@ body {
       color: #E9C77B;
       display: inline-block;
       overflow:hidden;
-      height:3.5rem;
-      margin-bottom: -1.0rem;
+      height:5.0rem;
+      margin-bottom: -1.5rem;
       ul {
         margin:0;
         padding-left:0;
         li {
         margin-bottom:0;
           p {
-            min-height: 3.5rem;
-            line-height: 3.5rem;
+            min-height: 5.0rem;
+            line-height: 5.0rem;
             margin-bottom:0;
           }
         }
