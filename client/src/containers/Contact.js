@@ -67,7 +67,7 @@ export default class Contact extends Component {
             </div>
             </div>
             </div>
-            <div className="row" style={{marginTop: '4rem'}}>
+            <div className="row" style={{marginTop: '5em'}}>
               <div className="six columns">
                 <h4>Address</h4>
                 <p>7475 Boul Newman,<br/> Montréal QC H8N 1X3, Canada</p>

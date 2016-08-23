@@ -69,7 +69,7 @@ export default class TrianglifyComponent extends Component {
         }
         
         this.renderer.setPixelRatio( window.devicePixelRatio );
-        this.renderer.setSize( window.innerWidth, window.innerHeight );
+        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
         this.container.appendChild( this.renderer.domElement );
         this.animate();
   }
@@ -87,10 +87,10 @@ export default class TrianglifyComponent extends Component {
   onWindowResize() {
 
 
-        this.camera.aspect = window.innerWidth / window.innerHeight;
+        this.camera.aspect = window.innerWidth / window.innerHeight*0.8;
         this.camera.updateProjectionMatrix();
 
-        this.renderer.setSize( window.innerWidth, window.innerHeight );
+        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
 
   }
 

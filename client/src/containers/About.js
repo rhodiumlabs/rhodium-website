@@ -10,6 +10,7 @@ export default class About extends Component {
         <div className="row" >
         <div className="twelve columns" style={{marginLeft: '1em'}}>
         <h1 style={{marginBottom: '2em'}}>about us</h1>
+
         <p>We are entering an era powered by a fusion of emerging technologies 
         across the physical and digital domains that have the potential to create 
         unprecedented value. </p>
