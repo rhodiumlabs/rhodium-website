@@ -40,10 +40,11 @@ export default class People extends Component {
   }
   render() {
     return (
-      <div className="mainpage">
+      <div className="mainpage container">
+        <div className="row" >
+        <div className="twelve columns">
+        <h1>people</h1>
         
-        <div className="container">
-        <h1 style={{marginBottom:'2em'}}>people</h1>
         <div className="people">
           {this.peoples.map((people,i) => 
             <div className="person">
@@ -52,6 +53,7 @@ export default class People extends Component {
             </div>)}
         </div>
         </div>
+      </div>
       </div>
     );
   }

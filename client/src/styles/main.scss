@@ -1,5 +1,6 @@
 $rhodium: #1a3445;
-
+$yellow:#E9C77B;
+$pink: #E2B49A;
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import './mixins.scss';
 
@@ -7,8 +8,13 @@ $rhodium: #1a3445;
   font-family: Spartan;
   src: url("/league.otf") format("opentype");
 }
+@font-face {
+  font-family: Montserrat-Light;
+  src: url("/montserrat-light.otf") format("opentype");
+}
+
 body {
-  font-family: Quicksand;
+  font-family: 'Montserrat-Light';
   margin:0;
   padding:0;
 }
@@ -30,8 +36,7 @@ body {
 
   .logo {
     font-size: 3.2rem;
-    margin-top: -8rem;
-    height: 50vh;
+    height: 70vh;
     font-family: 'Spartan', serif;
     color: #193446;
     z-index: 5;
@@ -56,6 +61,7 @@ body {
             min-height: 5.0rem;
             line-height: 5.0rem;
             margin-bottom:0;
+            font-size: 3.2rem;
           }
         }
       }
@@ -108,9 +114,29 @@ ul
 {
     list-style-type: none;
 }
-.mainpage {
-  min-height: 80vh;
+
+.mainpage.container {
+  max-width: 900px;
+  width: 100%;
+    padding-right: 20px;
+    margin: auto;
+    p {
+
+      font-size: 1.7rem;
+      font-weight:light;
+    }
+  h1 {
+    color: $yellow;
+    margin-top: 4rem;
+    margin-bottom:4rem;
+    font-weight: bold;
+    font-family: Montserrat;
+  }
+  h4,h5 {
+    font-family: Montserrat;
+  }
 }
+
 footer {
   text-align:right;
   padding-right:20px;
@@ -255,15 +281,7 @@ footer {
 
     // Letter Glow
 
-.container {
-    max-width: 900px;
-    width: 100%;
-    padding-right: 20px;
-    margin: auto;
-    p {
-      font-size: 1.0em;
-    }
-}
+
 .people {
   .person {
     &:hover {

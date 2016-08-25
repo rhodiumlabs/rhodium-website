@@ -93,9 +93,8 @@ export default class Tagline extends Component {
 
   render() {
     return (
-     <div className="logo flexbox-container">
+     <div className="logo flexbox-container" >
 
-        <div style={{opacity:'0', textAlign:'center'}}></div>
         <div ref={(ref) => this.main = ref} style={{textAlign:'center', opacity:'0'}}>
           <span> we are </span> <span ref={(ref) => this.finallogo = ref} ></span>
           

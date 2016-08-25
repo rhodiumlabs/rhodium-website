@@ -17,7 +17,7 @@ export default class TrianglifyComponent extends Component {
       cubeRotation: new THREE.Vector3(),
     };
 
-    this.SEPARATION = 100, this.AMOUNTX = 50, this.AMOUNTY = 50;
+    this.SEPARATION = 120, this.AMOUNTX = 60, this.AMOUNTY = 40;
     this.mouseX = 0; this.mouseY = 0;
     this.camera = null;
     this.scene = null;
@@ -32,7 +32,7 @@ export default class TrianglifyComponent extends Component {
   }
 
   componentDidMount() {
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / (window.innerHeight), 0.2, 4000 );
+        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / (window.innerHeight), 10, 4000 );
         this.camera.position.z = 3000;
 
         this.scene = new THREE.Scene();
@@ -69,7 +69,7 @@ export default class TrianglifyComponent extends Component {
         }
         
         this.renderer.setPixelRatio( window.devicePixelRatio );
-        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
+        this.renderer.setSize( window.innerWidth, window.innerHeight );
         this.container.appendChild( this.renderer.domElement );
         this.animate();
   }
@@ -87,10 +87,10 @@ export default class TrianglifyComponent extends Component {
   onWindowResize() {
 
 
-        this.camera.aspect = window.innerWidth / window.innerHeight*0.8;
+        this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
 
-        this.renderer.setSize( window.innerWidth, window.innerHeight*0.8 );
+        this.renderer.setSize( window.innerWidth, window.innerHeight );
 
   }
 
@@ -119,7 +119,7 @@ export default class TrianglifyComponent extends Component {
 
         this.renderer.render( this.scene, this.camera );
 
-        this.count += 0.1;
+        this.count += 0.05;
 
   }
 

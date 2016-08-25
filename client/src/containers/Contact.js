@@ -39,46 +39,54 @@ export default class Contact extends Component {
   render() {
     const { global,chatbot } = this.props;
     return (
-      <div className="flexbox-container mainpage">
-          <div className="container" >
+      <div className="container mainpage">
             <div className="row">
             <div className="twelve columns">
-            <div className="chatbot">
-              <ul ref={(ref) => this.messageArea = ref} className="message-area">
-                <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+            <h1>contact</h1>
+            
 
-                
-                {chatbot.messages.map(m => (
-                  <li className={"message " + m.type}>
-                    {m.type == 'bot' ? <Typist avgTypingDelay={20} cursor={{hideWhenDone:true}}>{'>_ ' + m.message}</Typist> : m.message}
-                  </li>
-                  )
-                )}
-                 {chatbot.loading ? <li className="bot message"><ChatLoader/></li> : ''}
-                </ReactCSSTransitionGroup>
-              </ul>
+            <div className="row">
+              
+              <div className="twelve columns">
+                <div className="chatbot">
+                  <ul ref={(ref) => this.messageArea = ref} className="message-area">
+                    <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 
-              <div className="input">
-                <form onSubmit={this.handleSubmit}> 
-                  <input type="text" value={this.state.userInput} 
-                  onChange={(e) => this.setState({userInput: e.target.value})} 
-                  placeholder="Type a message..."  /></form>
+                    
+                    {chatbot.messages.map(m => (
+                      <li className={"message " + m.type}>
+                        {m.type == 'bot' ? <Typist avgTypingDelay={20} cursor={{hideWhenDone:true}}>{'>_ ' + m.message}</Typist> : m.message}
+                      </li>
+                      )
+                    )}
+                     {chatbot.loading ? <li className="bot message"><ChatLoader/></li> : ''}
+                    </ReactCSSTransitionGroup>
+                  </ul>
+
+                  <div className="input">
+                    <form onSubmit={this.handleSubmit}> 
+                      <input type="text" value={this.state.userInput} 
+                      onChange={(e) => this.setState({userInput: e.target.value})} 
+                      placeholder="Type a message..."  /></form>
+                  </div>
+                </div>
               </div>
+              <hr/>
             </div>
-            </div>
-            </div>
-            <div className="row" style={{marginTop: '5em'}}>
+            <div className="row" style={{marginTop:'2em'}}>
               <div className="six columns">
-                <h4>Address</h4>
+                <h5>Address</h5>
                 <p>7475 Boul Newman,<br/> Montréal QC H8N 1X3, Canada</p>
               </div>
               <div className="six columns">
-                <h4>Say hello!</h4>
+                <h5>Say hello!</h5>
                 <p>Email us at <a href="mailto:hello@rhodium.io">hello@rhodium.io</a></p>
 
               </div>
             </div>
-          </div>
+            </div>
+            </div>
+            
       </div>
     );
   }

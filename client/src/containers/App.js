@@ -19,7 +19,7 @@ export default class App extends Component {
       <div>
           
           <TrianglifyComponent />
-          <div className="mainpage container flexbox-container">
+          <div className="mainpage container">
             <div className="row">
               <Tagline/>
               <div className="tagline"></div>
