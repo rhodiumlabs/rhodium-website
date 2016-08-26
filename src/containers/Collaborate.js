@@ -14,7 +14,7 @@ export default class Collaborate extends Component {
             <br/>
             <p>Imagine your team controlling a drone with their brain as it 
             flies through the air competing against an AI bot while you 3D printing a VR headset.  
-            Attendees don’t sit and listen to lectures on why technology matters - they experience it. </p>
+            Attendees don't sit and listen to lectures on why technology matters - they experience it. </p>
           </div>
         </div>
         <div className="row" >
@@ -92,7 +92,7 @@ export default class Collaborate extends Component {
           <div className="twelve columns">
             <h4><b>investigative learning</b></h4>
             <br/>
-            <p>You have the time, and the people— how do you get them to innovate? 
+            <p>You have the time, and the people - how do you get them to innovate? 
             With curated hands-on experiences, rhodium can help beginners and challenge experts
              on their emerging tech skills. These refreshing learning experiences are 
              designed to engage attendees with educational projects and the right platform. </p>
