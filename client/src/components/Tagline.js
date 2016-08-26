@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {VelocityTransitionGroup} from 'velocity-react';
 import TextAlternator from '../components/TextAlternator';
-import 'gsap/src/minified/plugins/TextPlugin.min'
-import { TextPlugin, TimelineLite } from "gsap";
+import 'gsap/src/minified/plugins/TextPlugin.min';
+import { TextPlugin, TimelineLite} from "gsap";
 export default class Tagline extends Component {
   constructor(props) {
     super(props);

@@ -23,15 +23,16 @@ export default class TrianglifyComponent extends Component {
     this.scene = null;
     this.renderer = null;
     this.particles = new Array();
-    this.renderer = new THREE.CanvasRenderer();
-
-    this.renderer.setClearColor( 0xffffff ); 
-    this.count = 0;
-    this.onWindowResize = this.onWindowResize.bind(this);
-    window.addEventListener( 'resize', this.onWindowResize, false );
+    
   }
 
   componentDidMount() {
+        this.renderer = new THREE.CanvasRenderer();
+
+        this.renderer.setClearColor( 0xffffff ); 
+        this.count = 0;
+        this.onWindowResize = this.onWindowResize.bind(this);
+        window.addEventListener( 'resize', this.onWindowResize, false );
         this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / (window.innerHeight), 10, 4000 );
         this.camera.position.z = 3000;
 

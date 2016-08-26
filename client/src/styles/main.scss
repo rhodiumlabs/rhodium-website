@@ -1,8 +1,4 @@
-$rhodium: #1a3445;
-$yellow:#E9C77B;
-$pink: #E2B49A;
-@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
-@import './mixins.scss';
+
 
 @font-face {
   font-family: Spartan;
@@ -346,3 +342,36 @@ footer {
   }
 
 }
+//collaboration
+.mainpage.collaborate {
+  max-width: 1200px;
+  h4 {
+    font-size: 3em;
+  }
+  .collab-images {
+    .image {
+      height: 300px;
+      display: inline-block;
+      background-size: contain;
+      box-shadow: inset 21px -8px 130px rgba(233, 199, 123, 0.80);
+          background-position: 43% 15%;
+    background-size: cover;
+    }
+  }
+  ul {
+    margin-left: 2em;
+  }
+  li:before {
+      content: "";
+    border-color: transparent #E9C77B;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+  }
+}
+

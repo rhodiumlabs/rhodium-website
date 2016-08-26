@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let extractSASS = new ExtractTextPlugin("styles.css");
 
 module.exports = {
   devtool: 'source-map',
@@ -21,7 +23,8 @@ module.exports = {
       compressor: {
         warnings: false
       }
-    })
+    }),
+    extractSASS
   ],
   module: {
     loaders: [
@@ -32,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loader: (process.env.NODE_ENV === 'production') ? extractSASS.extract(['css','sass']) : 'style!css!sass'
       }
     ]
   }

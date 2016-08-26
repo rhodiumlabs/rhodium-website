@@ -32,16 +32,3 @@ build experiences and help companies succeed with emerging technology.</p>
 }
 
 About.propTypes = {};
-
-function mapStateToProps(state) {
-  return {};
-}
-
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(About);

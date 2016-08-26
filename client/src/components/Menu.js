@@ -1,6 +1,6 @@
-import '../styles/menu.scss';
 import React,  { Component, PropTypes } from 'react';
 import {Link, IndexLink} from 'react-router';
+import routes from '../routes';
 export default class Menu extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +37,14 @@ export default class Menu extends Component {
           <div className={"open-menu " + (open ? 'open': '')}>
             <ul className="main-menu" >
               <li> <IndexLink activeClassName="active" to={'/'} onClick={actions.closeMenu} className="hvr-underline-from-left">home</IndexLink> </li>
-              <li> <Link activeClassName="active" onClick={actions.closeMenu} to={'/about'} className="hvr-underline-from-left">about</Link></li>
-              <li> <Link activeClassName="active" onClick={actions.closeMenu} to={'/people'} className="hvr-underline-from-left">people </Link></li>
+              {routes.childRoutes.map(route => 
+                <li>
+                  <Link activeClassName="active" 
+                    onClick={actions.closeMenu} 
+                    to={route.path} className="hvr-underline-from-left">{route.path.replace("/","")}</Link>
+                </li>
+              )}
               <li> <a    className="hvr-underline-from-left" href="https://blog.rhodium.io">blog</a></li>
-              <li> <Link activeClassName="active" onClick={actions.closeMenu} to={'/contact'} className="hvr-underline-from-left">contact</Link></li>
             </ul>
           </div>
           </div>

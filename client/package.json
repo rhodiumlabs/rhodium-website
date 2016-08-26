@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "elemental": "^0.5.14",
+    "extract-text-webpack-plugin": "^1.0.1",
     "gsap": "^1.19.0",
     "react": "~15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
