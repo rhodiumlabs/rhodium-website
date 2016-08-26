@@ -105,9 +105,8 @@ app.get('/*', function (req, res) {
   });
 
 });
+const port = process.env.PORT || 8080;
 
-const server = app.listen(3002, function () {
-  const host = server.address().address;
-  const port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+const server = app.listen(port, function () {
+  console.log('Example app listening at http://%s:%s', '0.0.0.0', port);
 });
