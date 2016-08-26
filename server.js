@@ -1,11 +1,5 @@
 import express from 'express';
 
-/*
-import webpack from 'webpack';
-import webpackConfig from '../../webpack.config';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-*/
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import { RoutingContext, match } from 'react-router';
@@ -71,7 +65,7 @@ const renderFullPage = (html, initialState) => {
   app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
   app.use(webpackHotMiddleware(compiler));
 }else{*/
-  app.use('/', express.static(__dirname + './../public/'));
+  app.use('/', express.static(__dirname + '/public/'));
 //}
 
 app.get('/*', function (req, res) {

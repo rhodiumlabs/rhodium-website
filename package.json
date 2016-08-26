@@ -40,6 +40,7 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
+    "babel": "^6.5.2",
     "elemental": "^0.5.14",
     "extract-text-webpack-plugin": "^1.0.1",
     "gsap": "^1.19.0",
