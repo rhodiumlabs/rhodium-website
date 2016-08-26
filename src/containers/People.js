@@ -61,15 +61,3 @@ export default class People extends Component {
 
 People.propTypes = {};
 
-function mapStateToProps(state) {
-  return {};
-}
-
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(People);

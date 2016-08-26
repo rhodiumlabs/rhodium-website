@@ -11,7 +11,7 @@ import TrianglifyComponent from '../components/TrianglifyContainer';
 import '../utils/api.ai.js';
 import Typist from 'react-typist';
 
-export default class Contact extends Component {
+export class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {

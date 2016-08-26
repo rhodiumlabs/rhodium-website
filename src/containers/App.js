@@ -8,7 +8,7 @@ import Tagline from '../components/Tagline';
 import TrianglifyComponent from '../components/TrianglifyContainer';
 import TextAlternator from '../components/TextAlternator';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-export default class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
   }

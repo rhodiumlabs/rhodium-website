@@ -9,7 +9,7 @@ import Menu from '../components/Menu';
 /**
  * Component is exported for conditional usage in Root.js
  */
-export default class Root extends Component {
+export class Root extends Component {
   render() {
     const { store, global, menuActions } = this.props;
     return (
