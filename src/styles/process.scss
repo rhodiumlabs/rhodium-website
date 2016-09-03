@@ -1,0 +1,68 @@
+.process-page {
+  margin-top: -100px;
+  width: 100%;
+  max-width:100%;
+  section {
+    display: flex;
+    width: 100%;
+    margin:auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .subjects {
+      min-height: 150px;
+
+      .list {
+        position: relative;
+        .indicator {
+          width: 10px;
+          height: 10px;
+          background: teal;
+          position: absolute;
+          left: -30px;
+          top: 39%;
+        }
+        ul {
+          li {
+            font-family: 'Spartan';
+            transition: all 0.2s ease-in;
+            margin-bottom:0;
+            font-size: 2em;
+          }
+          li.show {
+            color: teal;
+            font-size: 5em;
+            transition: all 0.2s ease-in; 
+          }
+        }
+      }
+
+  }
+
+
+  .mainpage.container {
+    max-width: 1200px;
+    p::first-letter {
+      font-size: 4rem;
+      font-weight:bold;
+      float:left;
+      line-height: 2rem;
+    }
+    p {
+      top: 0%;
+      font-size: 2rem;
+      position: absolute;
+    }
+    p.show {
+        visibility: visible;
+        transition: visibility 0s, opacity 0.5s linear;
+        opacity: 1;
+    }
+    p.hidden {
+          visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.5s linear;
+    }
+  }
+
+}
