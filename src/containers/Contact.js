@@ -76,7 +76,7 @@ export class Contact extends Component {
             <div className="row" style={{marginTop:'2em'}}>
               <div className="six columns">
                 <h5>Address</h5>
-                <p>7475 Boul Newman,<br/> Montréal QC H8N 1X3, Canada</p>
+                <p>{"7475 Boul Newman,<br/> Montréal QC H8N 1X3, Canada"}</p>
               </div>
               <div className="six columns">
                 <h5>Say hello!</h5>
