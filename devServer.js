@@ -21,7 +21,7 @@ config.plugins = [
 ]
 config.output = {
     path: path.join(__dirname, 'public'),
-    filename: 'react-app-bundle.js',
+    filename: 'bundle.js',
     publicPath: PUBLIC_DEV_SERVER
 }
 const compiler = webpack(config);
