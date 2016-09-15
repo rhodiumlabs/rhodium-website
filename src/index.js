@@ -9,10 +9,6 @@ import routes from './routes';
 import './styles/index.scss';
 
 import { RoutingContext, match } from 'react-router';
-import jquery from 'jquery';
-
-window.$ = window.jQuery = global.jQuery = jquery;
-import 'jquery-scrollify'
 
 
 const store = configureStore();
