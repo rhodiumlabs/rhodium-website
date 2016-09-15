@@ -9,6 +9,15 @@
     width:50px;
     -webkit-animation:bounce 2s infinite;
   }
+    ul.inline-list li {
+      display:inline-block;
+      margin-left: 1em;
+      &:before {
+        content: '>';
+        padding-right: 5px;
+        opacity: 0.5;
+      }
+    }
   .arrow {
   position: absolute;
   bottom: 0;
@@ -26,9 +35,6 @@
     25%, 75% { bottom:15px; }
     100%     {bottom:5px;}
   }
-
-  position: absolute;
-  top:0;
   .indicator {
       top: 34.58%;
     position: absolute;
@@ -41,10 +47,9 @@
   width: 100%;
   max-width:100%;
   section {
-    display: flex;
     width: 100%;
     margin:auto;
-    align-items: center;
+    height: 100vh;
     justify-content: center;
   }
   .sub-header {
@@ -59,13 +64,11 @@
 
   }
   .content-holder { 
-    max-height: 50vh;
-    top: 15vh;
-    right: 0;
-    &>div {
-      position: absolute;
-      top: 0;
-    }
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+
     .active {
               visibility: visible;
         transition: visibility 0s, opacity 0.5s linear;
@@ -121,17 +124,60 @@
 
   .mainpage.container {
     max-width: 1200px;
+    height: 100vh;
 
+    .four.columns {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+    }
 
   }
 
       .hidden {
       visibility:hidden;
       display: none;
-      transition: visibility 0s, opacity 0s linear;
+      transition: visibility 0s, all 0s linear;
     }
     .show {
       visibility:visible;
-      transition: visibility 0s, opacity 0.5s linear;
+      transition: visibility 0s, all 0.5s linear;
     }
+}
+
+.process-title {
+  opacity: 0.25;
+  color:#1a3445; 
+  transition: all 0.5s ease-in-out;
+  position:absolute;
+  transform: translate(0%, -130%);
+  font-size: 4.5em;
+  font-family:'Spartan';
+  &.active {
+    opacity: 0.7;
+    transform: translate(0%, -50%);
+    transition: all 0.5s ease-in-out;
+
+  }
+}
+.process-title.process-title-enter, .process-title.active.process-title-enter {
+  opacity: 0.01;
+}
+
+.process-title-enter.process-title-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in-out;
+  transition-delay: 0.3s;
+}
+
+.active.process-title-leave {
+  opacity: 1;
+}
+.process-title-leave {
+  opacity: 0.9;
+}
+
+.process-title-leave.process-title-leave-active {
+  opacity: 0.01 ;
+  transition: all 200ms ease-in-out;
 }
