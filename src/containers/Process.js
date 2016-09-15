@@ -11,7 +11,7 @@ export default class Process extends Component {
     };
   }
   componentDidMount() {
-    let scroll = new IScroll(this.wrapper,{scrollbars: true, mouseWheel: true, momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
+    let scroll = new IScroll(this.wrapper,{scrollbars: true,bounceEasing:'quadratic', mouseWheel: true, momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
 
     scroll.on('scrollStart', (a) => {
       setTimeout(()=> {
