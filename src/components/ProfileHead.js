@@ -55,10 +55,13 @@ export default class ProfileHead extends Component {
                     </div>
                        <div className="description" style={this.props.last ? {right: '0'}: {}}>
                         <div className="name">{people.name}</div>
-                       
                         <div className="title">{people.title}</div>
-                        
-
+                        <div className="steps">
+                          {people.health && people.health.steps}
+                        </div>
+                        <div className="city">
+                          {people.health && people.health.city}
+                        </div>
                       </div>
                 </div>
     );
