@@ -37,6 +37,7 @@
   }
   .indicator {
       top: 34.58%;
+    margin-left:10%;
     position: absolute;
     right: 0;
     height: 14vh;
@@ -44,7 +45,7 @@
     background: teal;
 
   }
-  width: 100%;
+  width: 100%;  
   max-width:100%;
   section {
     width: 100%;
@@ -123,7 +124,6 @@
 
 
   .mainpage.container {
-    max-width: 1200px;
     height: 100vh;
 
     .four.columns {
@@ -151,10 +151,10 @@
   transition: all 0.5s ease-in-out;
   position:absolute;
   transform: translate(0%, -130%);
-  font-size: 4.5em;
+  font-size: 3.5em;
   font-family:'Spartan';
   &.active {
-    opacity: 0.7;
+    opacity: 1.0;
     transform: translate(0%, -50%);
     transition: all 0.5s ease-in-out;
 
@@ -167,7 +167,6 @@
 .process-title-enter.process-title-enter-active {
   opacity: 1;
   transition: all 500ms ease-in-out;
-  transition-delay: 0.3s;
 }
 
 .active.process-title-leave {
@@ -175,6 +174,50 @@
 }
 .process-title-leave {
   opacity: 0.9;
+}
+.navigation {
+    .indicator {
+      margin: auto;
+      transition: width 800ms ease-in-out;
+      height: 3px;
+      background: #1a3445;
+      position: absolute;
+      top: 7px;
+      left:10%;
+    }
+
+    .scroll-point {
+        span {
+          min-height: 12px;
+
+        }
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 25px;
+        color: #1a3445;
+        &.active:before {
+          
+          background: #1a3445;
+          transition: all 400ms ease-in;
+        }
+        &:before {
+
+          transition: all 400ms ease-out;
+          content:'';
+          width: 15px;
+          height: 15px;
+          display: block;
+          background:rgba(255, 255, 255, 0.26);
+          border-radius: 100%;
+          margin: auto;
+        }
+        &:hover{
+          cursor: pointer;
+          font-weight:bold;
+          color: #EEE;
+        }
+    }
 }
 
 .process-title-leave.process-title-leave-active {
