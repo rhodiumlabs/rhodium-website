@@ -50,7 +50,7 @@ export default class Process extends Component {
         return <section className='panel' style={{position:'relative', height: '100vh',color:color, background:background}}>
             <div className='mainpage container'>  
               <div className="four columns"><h1 style={{color:color}}>{title}</h1></div>
-              <div className="eight columns content-holder">{header ? <h4>{content}</h4> : <h5>{content}</h5>}</div>
+              <div className="eight columns content-holder"><h6>{content}</h6></div>
 
             </div>
         </section>
@@ -96,8 +96,8 @@ export default class Process extends Component {
                   </div>
                   <div className="eight columns content-holder">
                     <div>
-                      <h5>We apply design-thinking to everything from products to services to information to create systems and human experiences that underpin modern business and life.
-                      </h5>
+                      <h6>We apply design-thinking to everything from products to services to information to create systems and human experiences that underpin modern business and life.
+                      </h6>
                       <ul className="inline-list">
                           <li>Product </li> 
                           <li>Service </li> 
@@ -120,7 +120,7 @@ export default class Process extends Component {
                   </div>
                   <div className="eight columns content-holder">
                     <div>
-                      <h5>We apply extreme-programming and use an rapid, iterative approach to building products for physical and digital mediums.</h5>
+                      <h6>We apply extreme-programming and use an rapid, iterative approach to building products for physical and digital mediums.</h6>
                       <ul className="inline-list">
                           <li>Software  </li> 
                           <li>Firmware  </li> 
@@ -141,7 +141,7 @@ export default class Process extends Component {
                   </div>
                   <div className="eight columns content-holder">
                   <div>
-                      <h5>We apply extreme-programming and use an rapid, iterative approach to building products for physical and digital mediums.</h5>
+                      <h6>We apply extreme-programming and use an rapid, iterative approach to building products for physical and digital mediums.</h6>
                       <ul className="inline-list">
                         <li>Electrical</li>
                         <li>Mechanical </li>
@@ -178,7 +178,7 @@ export default class Process extends Component {
           <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445'}}>
               <div className="mainpage container">
                   <div className="row">
-                  <div className="twelve columns">
+                  <div className="twelve columns content-holder">
                     <h1>Reach out to learn more!</h1>
                   </div>
                 </div>
@@ -200,11 +200,11 @@ export default class Process extends Component {
             
             <div style={{width:'900px',margin:'auto', position:'relative'}}>
               <div className={'indicator'} style={{width:navigationWidth()+'%'}}></div>
-              <div className={'scroll-point '+(this.state.currentPage >= 0 ? 'active': '')} onClick={()=>{this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}><span>-</span></div>
+              <div className={'scroll-point '+(this.state.currentPage >= 0 ? 'active': '')} onClick={()=>{this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}><span style={{opacity:0}}>-</span></div>
               <div className={'scroll-point '+(this.state.currentPage >= 1 ? 'active': '')} onClick={()=>{this.setState({currentPage:1}); this.scroll.goToPage(0, 1, 1000);}}><span>insight</span></div>
               <div className={'scroll-point '+(this.state.currentPage >= 5 ? 'active': '')} onClick={()=>{this.setState({currentPage:5}); this.scroll.goToPage(0, 5, 1000);}}><span>invent</span></div>
               <div className={'scroll-point '+(this.state.currentPage >= 9 ? 'active': '')} onClick={()=>{this.setState({currentPage:9}); this.scroll.goToPage(0, 9, 1000);}}><span>implement</span></div>
-              <div className={'scroll-point '+(this.state.currentPage >= 14 ? 'active': '')} onClick={()=>{this.setState({currentPage:14}); this.scroll.goToPage(0, 14, 1000);}}><span>-</span></div>
+              <div className={'scroll-point '+(this.state.currentPage >= 14 ? 'active': '')} onClick={()=>{this.setState({currentPage:14}); this.scroll.goToPage(0, 14, 1000);}}><span style={{opacity:0}}>-</span></div>
             
             </div>
         </div>

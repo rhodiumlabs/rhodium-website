@@ -1,4 +1,8 @@
 .process-page {
+  h6 {
+    margin-bottom: 0;
+    font-size: 1.5em;
+  }
   .bounce {
     position:fixed;
     left:50%;
@@ -9,7 +13,17 @@
     width:50px;
     -webkit-animation:bounce 2s infinite;
   }
+    ul.inline-list {
+      margin-top: 1em;
+    }
+    ul.inline-list li:first-child {
+      margin-left: 0;
+    }
+    ul.inline-list li:nth-child(5) {
+      margin-left: 0;
+    } 
     ul.inline-list li {
+      width:20%;
       display:inline-block;
       margin-left: 1em;
       &:before {
@@ -98,7 +112,7 @@
       transition: visibility 0s, opacity 0.5s linear;
     }
     ul {
-      margin-top: -1.2rem;
+      margin-top: 1.2rem;
     }
 
     ul li { 
@@ -196,13 +210,17 @@
         text-align: center;
         margin-bottom: 25px;
         color: #1a3445;
+        span { opacity:0; transition: all 400ms ease-out;}
+
+        &.active span {
+          opacity:1;
+          transition: all 400ms ease-out;
+        }
         &.active:before {
-          
           background: #1a3445;
           transition: all 400ms ease-in;
         }
         &:before {
-
           transition: all 400ms ease-out;
           content:'';
           width: 15px;
