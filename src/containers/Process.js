@@ -200,7 +200,7 @@ export default class Process extends Component {
             
             <div style={{width:'900px',margin:'auto', position:'relative'}}>
               <div className={'indicator'} style={{width:navigationWidth()+'%'}}></div>
-              <div className={'scroll-point '+(this.state.currentPage >= 0 ? 'active': '')} onClick={()=>{this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}><span style={{opacity:0}}>-</span></div>
+              <div className={'scroll-point '+(this.state.currentPage > 0 ? 'active': '')} onClick={()=>{this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}><span style={{opacity:0}}>-</span></div>
               <div className={'scroll-point '+(this.state.currentPage >= 1 ? 'active': '')} onClick={()=>{this.setState({currentPage:1}); this.scroll.goToPage(0, 1, 1000);}}><span>insight</span></div>
               <div className={'scroll-point '+(this.state.currentPage >= 5 ? 'active': '')} onClick={()=>{this.setState({currentPage:5}); this.scroll.goToPage(0, 5, 1000);}}><span>invent</span></div>
               <div className={'scroll-point '+(this.state.currentPage >= 9 ? 'active': '')} onClick={()=>{this.setState({currentPage:9}); this.scroll.goToPage(0, 9, 1000);}}><span>implement</span></div>
