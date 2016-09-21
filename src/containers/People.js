@@ -9,45 +9,110 @@ export default class People extends Component {
     super(props);
     this.peoples = [{
         name: 'Ari Ramdial',
+        nameAPI: 'Ari',
         title: 'Co-Founder + Managing Partner',
-        knowledge: 'Blockchain, Medical Technology, Artificial Intelligence, etc.'
+        knowledge: 'Blockchain, Medical Technology, Artificial Intelligence, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Imran Jameel',
+        nameAPI: 'Imran',
         title: 'Co-Founder + Partner',
-        knowledge: ' IoT, Robotics, Consumer Electronics, etc.'
+        knowledge: ' IoT, Robotics, Consumer Electronics, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Alexandra Lutchman',
+        nameAPI: 'Alexandra',
         title: 'Co-Founder + Partner',
-        knowledge: 'Education, Non-Profits, Civic Works, etc.'
+        knowledge: 'Education, Non-Profits, Civic Works, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Alex Daskalov',
+        nameAPI: 'Daskalov',
         title: 'Co-Founder + Partner',
-        knowledge: ' Blockchain, Medical Technology, Wearables, etc.'
+        knowledge: ' Blockchain, Medical Technology, Wearables, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Nadim Islam',
+        nameAPI: 'Nadim',
         title: 'Co-Founder + Partner',
-        knowledge: 'Full Stack Developer, Data Visualization, UI/UX, etc.'
+        knowledge: 'Full Stack Developer, Data Visualization, UI/UX, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Miti Bhavsar',
+        nameAPI: 'Miti',
         title: 'Associate',
-        knowledge:'education, finance, block chain, etc.'
+        knowledge:'education, finance, block chain, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Ayvi Islam',
-        knowledge: 'Product Design, Mechanical Engineering, etc.'
+        nameAPI: 'Ayvi',
+        knowledge: 'Product Design, Mechanical Engineering, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Colin Gallacher',
-        knowledge: 'Robotics, Augmented Reality, Haptics, etc.'
+        nameAPI: 'Colin',
+        knowledge: 'Robotics, Augmented Reality, Haptics, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Zafarali Ahmed',
-        knowledge: 'Biosimulation, Cancer Genomics, Machine Learning, etc.'
+        nameAPI: 'Zafarali',
+        knowledge: 'Biosimulation, Cancer Genomics, Machine Learning, etc.',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Anjali Chandrashekar',
-        knowledge: 'Product Design'
+        nameAPI: 'Anjali',
+        knowledge: 'Product Design',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
       }, {
         name: 'Mohammad Rafsan',
-        knowledge: 'Distributed Computing'
+        nameAPI: 'Rafsan',
+        knowledge: 'Distributed Computing',
+        health: {
+          steps: undefined,
+          city: undefined
+        }
     }];
     this.state = { pos: 1 };
+  }
+
+  componentDidMount() {
+    const urlHealth = 'https://pebble-health-server.herokuapp.com/webhook';
+    fetch(urlHealth, {
+      method: 'post',
+    }).then((response) => {
+      console.log('Success: ' +response);
+      // Set us up the state of the people
+    });
   }
 
   render() {
@@ -61,8 +126,9 @@ export default class People extends Component {
                 <div className="person">
                   <ProfileHead
                     pos={i}
+                    key={i}
                     people={people}
-                    last={(i+1)%5 == 0 }
+                    last={(i+1) % 5 == 0 }
                     image={(i < 5)} />
                 </div>)}
             </div>
