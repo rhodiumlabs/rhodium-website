@@ -3,6 +3,7 @@ import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import IScroll from '../components/iscroll';
+import {Link} from 'react-router';
 export default class Process extends Component {
   constructor(props) {
     super(props);
@@ -11,8 +12,8 @@ export default class Process extends Component {
     };
   }
   componentDidMount() {
-    this.scroll = new IScroll(this.wrapper,{scrollbars: true,bounceEasing:'quadratic', mouseWheel: true, momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
-
+    this.scroll = new IScroll(this.wrapper,{scrollbars: true,click:true,preventDefault: false,bounceEasing:'quadratic', mouseWheel: true, momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
+    //setTimeout(() => {new Vivus('insight', {duration: 500, file: '/icons/insight.svg'});}, 200);
     setInterval(()=> {
       if(this.scroll.currentPage.pageY !== this.state.currentPage) {
         this.setState({currentPage: this.scroll.currentPage.pageY});
@@ -22,7 +23,10 @@ export default class Process extends Component {
   }
   render() {
     const navigationWidth = () => {
-      if(this.state.currentPage == 0)
+      if(typeof(this.state.currentPage) === "undefined" ) {
+        return 0;
+      }
+      else if(this.state.currentPage == 0)
         return 0;
       else if(this.state.currentPage >= 1 && this.state.currentPage <= 5)
         return 20+(this.state.currentPage - 1) * 5;
@@ -35,27 +39,38 @@ export default class Process extends Component {
     }
     const titleGenerator = () => {
       let className = 'process-title ' + ([1,5,9].includes(this.state.currentPage) ? 'active': '');
+      
       if(this.state.currentPage >= 1 && this.state.currentPage < 5)
-        return <h1 key='insight' className={className} >insight</h1>;
+        return <h1 key='insight' className={className} ><span>insight</span>  </h1>;
       else if(this.state.currentPage >= 5 && this.state.currentPage < 9)
         return <h1 key='invent'  className={className}  style={{color:'white'}}>invent</h1>;
       else if(this.state.currentPage >= 9 && this.state.currentPage < 14)
-        return <h1 key='implement' className={className} >implement</h1>;
+        return <h1 key='implement' className={className} > implement</h1>;
+      else if(this.state.currentPage == 14)
+        return <h1 key='over' className={'over'}> <Link className="button" to={'/contact'} >Talk to us ></Link> </h1>;
       else 
-        return <h1 key='over'></h1>;
+        return null;
 
     }
 
     const contentGenerator = (color, background, title, content, header=false) => {
         return <section className='panel' style={{position:'relative', height: '100vh',color:color, background:background}}>
             <div className='mainpage container'>  
-              <div className="four columns"><h1 style={{color:color}}>{title}</h1></div>
-              <div className="eight columns content-holder"><h6>{content}</h6></div>
+              {header ? <div className="twelve columns content-holder header-page"><h6>{content}</h6></div> : 
+                [<div className="four columns content-holder "><h1 style={{color:color}}>{title}</h1></div>,
+                <div className="eight columns content-holder"><h6>{content}</h6></div>]
+              }
+              
 
             </div>
         </section>
     }
-
+    const percentageNav = (start, end) => {
+      if(!this.state.currentPage) return 0;
+      if(this.state.currentPage > end) return 16;
+      if(this.state.currentPage >= start) return 16*((this.state.currentPage-start)/(end-start));
+      return 0
+    }
     return (
       <div>
         <div ref={(ref) => this.wrapper = ref} style={{height:'100vh',position:'fixed',top:'0', width:'100%', overflow:'hidden'}} >
@@ -68,6 +83,7 @@ export default class Process extends Component {
                 <h1>process</h1>
                 <h3> We create <b>products</b>, <b>services</b>, and <b>experiences</b> that hide their technological prowess, elicit delight, and demonstrate simplicity and value. 
                 </h3>
+
                 <h3>Here’s how we do it.</h3>
               </div>
               </div>
@@ -91,13 +107,14 @@ export default class Process extends Component {
           <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
-                  <div className="four columns">
+                  <div className="four columns content-holder">
                     <h1 style={{color:'#1a3445'}}>design</h1>
                   </div>
                   <div className="eight columns content-holder">
                     <div>
                       <h6>We apply design-thinking to everything from products to services to information to create systems and human experiences that underpin modern business and life.
                       </h6>
+
                       <ul className="inline-list">
                           <li>Product </li> 
                           <li>Service </li> 
@@ -115,7 +132,7 @@ export default class Process extends Component {
           <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
-                  <div className="four columns">
+                  <div className="four columns content-holder">
                     <h1 style={{color:'#1a3445'}}>develop</h1>
                   </div>
                   <div className="eight columns content-holder">
@@ -136,7 +153,7 @@ export default class Process extends Component {
           <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
-                  <div className="four columns">
+                  <div className="four columns content-holder">
                     <h1 style={{color:'#1a3445'}}>engineer</h1>
                   </div>
                   <div className="eight columns content-holder">
@@ -158,7 +175,7 @@ export default class Process extends Component {
           <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
-                  <div className="four columns">
+                  <div className="four columns content-holder">
                     <h1 style={{color:'#1a3445'}}>productize</h1>
                   </div>
                   <div className="eight columns content-holder">
@@ -179,7 +196,7 @@ export default class Process extends Component {
               <div className="mainpage container">
                   <div className="row">
                   <div className="twelve columns content-holder">
-                    <h1>Reach out to learn more!</h1>
+                    <h1 className={'process-title active'}> say hello!</h1>
                   </div>
                 </div>
               </div>
@@ -188,7 +205,7 @@ export default class Process extends Component {
 
         </div>
         {/*** Dynamic content without moving ***/}
-        <div ref={(ref) => this.indicator = ref}  style={{display:'flex',position:'fixed', top: '0',height:'100vh',width:'100%', alignItems:'center'}}>
+        <div  style={{display:'flex',position:'fixed', top: '0',height:'100vh',width:'100%', alignItems:'center'}}>
             <div style={{width:'100%', maxWidth: '900px', margin:'auto'}}>
                 <ReactCSSTransitionGroup transitionName="process-title" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
                   {titleGenerator()} 
@@ -196,14 +213,29 @@ export default class Process extends Component {
             </div>
         </div>
 
-        <div className={'navigation'}  style={{position:'fixed', bottom: '0' ,width:'100%'}}>
+        <div className={'navigation'}  style={{display:this.state.currentPage && this.state.currentPage > 0 ? 'block': 'none', position:'fixed', bottom: '0' ,width:'100%'}}>
             
-            <div style={{width:'900px',margin:'auto', position:'relative'}}>
-              <div className={'indicator'} style={{width:navigationWidth()+'%'}}></div>
-              <div className={'scroll-point '+(this.state.currentPage > 0 ? 'active': '')} onClick={()=>{this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}><span style={{opacity:0}}>-</span></div>
-              <div className={'scroll-point '+(this.state.currentPage >= 1 ? 'active': '')} onClick={()=>{this.setState({currentPage:1}); this.scroll.goToPage(0, 1, 1000);}}><span>insight</span></div>
-              <div className={'scroll-point '+(this.state.currentPage >= 5 ? 'active': '')} onClick={()=>{this.setState({currentPage:5}); this.scroll.goToPage(0, 5, 1000);}}><span>invent</span></div>
-              <div className={'scroll-point '+(this.state.currentPage >= 9 ? 'active': '')} onClick={()=>{this.setState({currentPage:9}); this.scroll.goToPage(0, 9, 1000);}}><span>implement</span></div>
+            <div style={{margin:'auto', position:'relative'}}>
+
+              
+              <div className={'scroll-point '+(this.state.currentPage > 0 ? 'active': '')} onClick={()=>{this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}><span style={{opacity:0}}>-</span>
+                <div className={'indicator'} style={{width:percentageNav(0,1)+'%', left:'10%'}}></div>
+              </div>
+              
+              
+
+              <div className={'scroll-point '+(this.state.currentPage >= 1 ? 'active': '')} onClick={()=>{this.setState({currentPage:1}); this.scroll.goToPage(0, 1, 1000);}}><span>insight</span>
+                <div className={'indicator'} style={{width:percentageNav(1,5)+'%', left:'30%'}}></div>
+              </div>
+              
+              <div className={'scroll-point '+(this.state.currentPage >= 5 ? 'active': '')} onClick={()=>{this.setState({currentPage:5}); this.scroll.goToPage(0, 5, 1000);}}><span>invent</span>
+                 <div className={'indicator'} style={{width:percentageNav(5,9)+'%', left:'50%'}}></div>
+              </div>
+             
+              <div className={'scroll-point '+(this.state.currentPage >= 9 ? 'active': '')} onClick={()=>{this.setState({currentPage:9}); this.scroll.goToPage(0, 9, 1000);}}><span>implement</span>
+                <div className={'indicator'} style={{width:percentageNav(9,13)+'%', left:'70%'}}></div>
+              </div>
+              
               <div className={'scroll-point '+(this.state.currentPage >= 14 ? 'active': '')} onClick={()=>{this.setState({currentPage:14}); this.scroll.goToPage(0, 14, 1000);}}><span style={{opacity:0}}>-</span></div>
             
             </div>

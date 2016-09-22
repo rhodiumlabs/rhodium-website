@@ -12,7 +12,7 @@ const routes = {
   component: Root,
   indexRoute: { component: App },
   childRoutes: [
-    /*{path:'/process', component: Process},*/
+    {path:'/process', component: Process},
     {path:'/contact', component: Contact},
     {path:'/people',  component: People},
     {path:'/about', component: About}
