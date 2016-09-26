@@ -10,7 +10,7 @@ export default class Menu extends Component {
   }
   componentDidMount() {
     document.addEventListener("scroll", (e) => {
-      if(document.body.scrollTop > 56) {
+      if(document.body.scrollTop > 56 && this.props.route !== '/process') {
         this.setState({scrolled:true});
       }
       else {
@@ -21,8 +21,9 @@ export default class Menu extends Component {
   }
   render() {
     let {open, actions} = this.props;
+    let isProcess = this.props.route == '/process'
     return (
-      <div id="menu" className={`container ${this.state.scrolled ? 'scrolled': ''} ${open ? 'open' : ''}`}>
+      <div id="menu" style={{height: isProcess ? '0px': '100px'}} className={`container ${this.state.scrolled ? 'scrolled': ''} ${open ? 'open' : ''}`}>
         <div className="row">
         <div className="twelve columns">
         <div>

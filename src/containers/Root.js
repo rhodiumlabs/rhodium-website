@@ -19,9 +19,8 @@ export class Root extends Component {
       <div className="Site">
 
         <main className="Site-content"> 
-          <Menu open={global.menuOpened} actions={menuActions} />
+          <Menu open={global.menuOpened} route={this.props.location.pathname} actions={menuActions} />
 
-          
           {this.props.children}
 
         </main>
