@@ -1,35 +1,4 @@
- .over .button {
-    @include desktop {
-      margin-top: 15em;
-    }
-    
-  @media only screen and (max-device-width: 736px) {
-    transform: translate(15%,-230%);
-  }
-}
 .process-page {
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  -o-text-size-adjust: none;
-  text-size-adjust: none;
-
-  h3 {
-     @media only screen and (max-device-width: 736px) {
-      font-size: 1.6em;
-      margin-top: 1em;
-     }
-  }
   h6 {
     margin-bottom: 0;
     font-size: 1.5em;
@@ -57,7 +26,7 @@
         opacity: 0.5;
       }
     }
-    @include desktop {
+    @mixin desktop {
       ul.inline-list li:first-child {
       margin-left: 0;
     }
@@ -113,7 +82,29 @@
     }
 
   }
+  .header-page {
+    margin-top:7em;
+    @mixin desktop {
+      margin-top:15em;
+    }
+  }
+  .content-holder { 
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
 
+    .active {
+              visibility: visible;
+        transition: visibility 0s, opacity 0.5s linear;
+        opacity: 1;
+    }
+    .inactive {
+          visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.5s linear;
+    }
+  }
   .content {
     p {
       top: 0%;
@@ -158,21 +149,16 @@
 
   .mainpage.container {
 
-    @include desktop {
+    
+    @mixin desktop {
       .content-holder {
         height: 100vh;
         display:flex;
         align-items:center;
         height: 100vh;
       }
-      .header-page h6 {
-        margin-top: 15em;
-       }
     }
-    @media only screen and (max-device-width: 736px) {
-      padding-top: 150px;
-      padding-left: 20px;
-      padding-right: 20px;
+    @media only screen and (max-device-width: 600px) {
       .content-holder {
         display:block;
         height: inherit;
@@ -183,9 +169,6 @@
         h6 {
           margin-top:1rem;
           font-size: 1.9rem;
-        }
-        &.header-page h6 {
-          margin-top: 7em;
         }
       }
 
@@ -215,50 +198,25 @@
     opacity: 1.0;
     transition: all 0.5s ease-in-out;
   }
-  @include desktop {
-      transform: translate(0%, -150%);
+  @mixin desktop {
+      transform: translate(0%, -200%);
       font-size: 3.5em;
       &.active {
         
         transform: translate(0%, -50%);
         font-size: 7em;
       }
-
-      img {
-        height: 100px;
-        width: 100px;
-        position:absolute;
-        right:-100px;
-        top:0;
-        transition: opacity 0.2s ease-in-out;
-      }
-      &.active.last {
-        .button {
-          display:inline-block;
-        }
-      }
   }
-  @media only screen and (max-device-width: 736px) {
-      
+  @media only screen and (max-device-width: 600px) {
+      top: 115px;
       font-size: 2em;
       left: 20px;
-      position: fixed;
-      display: block;
-      top: 60px;
       img {
-        height: 100px;
-        width: 100px;
-        transition: opacity 0.2s ease-in-out;
-      }
-      &.active.last {
-        top: 200px;
-        .button {
-          display:block;
-        }
+        height: 50px  ;
       }
       &.active {
-        top: 100px;
-        font-size: 3em;
+        top: 140px;
+        font-size: 4em;
       }
   }
 }
@@ -333,7 +291,6 @@
           font-weight:bold;
           color: #EEE;
         }
-
     }
 }
 

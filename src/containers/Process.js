@@ -3,6 +3,7 @@ import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import IScroll from '../components/iscroll';
+
 import {Link} from 'react-router';
 export default class Process extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export default class Process extends Component {
     };
   }
   componentDidMount() {
-    this.scroll = new IScroll(this.wrapper,{scrollbars: true,click:true,preventDefault: false,bounceEasing:'quadratic', mouseWheel: true, momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
+
+    this.scroll = new IScroll(this.wrapper,{scrollbars: true,click:true,preventDefault: false,bounceEasing:'quadratic', mouseWheel: true, snapThreshold:'0.1',momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
     //setTimeout(() => {new Vivus('insight', {duration: 500, file: '/icons/insight.svg'});}, 200);
     setInterval(()=> {
       if(this.scroll.currentPage.pageY !== this.state.currentPage) {
@@ -38,23 +40,26 @@ export default class Process extends Component {
         return 80;
     }
     const titleGenerator = () => {
+
       let className = 'process-title ' + ([1,5,9].includes(this.state.currentPage) ? 'active': '');
-      
-      if(this.state.currentPage >= 1 && this.state.currentPage < 5)
-        return <h1 key='insight' className={className} ><span>insight</span>  </h1>;
+      if(this.state.currentPage == 0) {
+        return <h1 key='start' className={className} ><span></span> </h1>;
+      }
+      else if(this.state.currentPage >= 1 && this.state.currentPage < 5)
+        return <h1 key='insight' className={className} ><span>insight</span><img style={{opacity: this.state.currentPage == 1 ? '1': '0'}} src="/icons/insight.svg"/></h1>;
       else if(this.state.currentPage >= 5 && this.state.currentPage < 9)
-        return <h1 key='invent'  className={className}  style={{color:'white'}}>invent</h1>;
+        return <h1 key='invent'  className={className}  style={{color:'white'}}>invent<img style={{opacity: this.state.currentPage == 5 ? '1': '0'}} src="/icons/invent.svg"/></h1>;
       else if(this.state.currentPage >= 9 && this.state.currentPage < 14)
-        return <h1 key='implement' className={className} > implement</h1>;
+        return <h1 key='implement' className={className} > implement<img style={{opacity: this.state.currentPage == 9 ? '1': '0'}} src="/icons/implement.svg"/></h1>;
       else if(this.state.currentPage == 14)
-        return <h1 key='over' className={'over'}> <Link className="button" to={'/contact'} >Talk to us ></Link> </h1>;
+        return <h1 className={'process-title active last'} > say hello! <Link className="button" to={'/contact'}>Talk to us ></Link> </h1>;
       else 
         return null;
 
     }
 
     const contentGenerator = (color, background, title, content, header=false) => {
-        return <section className='panel' style={{position:'relative', height: '100vh',color:color, background:background}}>
+        return <section className='panel' style={{position:'relative', height: window.innerHeight + 'px',color:color, background:background}}>
             <div className='mainpage container'>  
               {header ? <div className="twelve columns content-holder header-page"><h6>{content}</h6></div> : 
                 [<div className="four columns content-holder "><h1 style={{color:color}}>{title}</h1></div>,
@@ -72,19 +77,18 @@ export default class Process extends Component {
       return 0
     }
     return (
-      <div>
-        <div ref={(ref) => this.wrapper = ref} style={{height:'100vh',position:'fixed',top:'0', width:'100%', overflow:'hidden'}} >
+        <div ref={(ref) => this.wrapper = ref} style={{height:window.innerHeight + 'px', position:'absolute', top:'0', width:'100%',overflow:'hidden'}} >
         <div ref={(ref) => this.slideContainer = ref} 
-          className="process-page">
-          <section className={'panel'} style={{zIndex:5, position:'relative', height: '100vh',marginTop:-this.state.margins[0] + 'px'}}>
+          className="process-page" style={{height:'auto'}}>
+          <section className={'panel'} style={{zIndex:5, position:'relative', height: window.innerHeight + 'px'}}>
               <div className="mainpage container">
               <div className="content-holder row">
               <div className="twelve columns">
                 <h1>process</h1>
-                <h3> We create <b>products</b>, <b>services</b>, and <b>experiences</b> that hide their technological prowess, elicit delight, and demonstrate simplicity and value. 
-                </h3>
+                <p style={{fontSize:'2.1rem'}}> We create <b>products</b>, <b>services</b>, and <b>experiences</b> that hide their technological prowess, elicit delight, and demonstrate simplicity and value. 
+                </p>
 
-                <h3>Here’s how we do it.</h3>
+                <p style={{fontSize:'2.1rem'}}>Here’s how we do it.</p>
               </div>
               </div>
               </div>  
@@ -104,7 +108,7 @@ export default class Process extends Component {
           {contentGenerator('#1a3445','#c4d4e0','', 'We construct functional prototypes while testing in an agile cycle. In this phase, we also create a production ready prototype that can scale to serve millions of your customers. We then guide you to successful commercialization.',true)}
 
 
-          <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
+          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
                   <div className="four columns content-holder">
@@ -129,7 +133,7 @@ export default class Process extends Component {
                 </div>
               </div>
           </section>
-          <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
+          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
                   <div className="four columns content-holder">
@@ -150,7 +154,7 @@ export default class Process extends Component {
               </div>
           </section>
 
-          <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
+          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
                   <div className="four columns content-holder">
@@ -172,7 +176,7 @@ export default class Process extends Component {
                 </div>
               </div>
           </section>
-          <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445', background:'#c4d4e0'}}>
+          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
               <div className="mainpage container">
                   <div className="row">
                   <div className="four columns content-holder">
@@ -192,11 +196,10 @@ export default class Process extends Component {
               </div>
           </section>
 
-          <section className={'panel'} style={{position:'relative', height: '100vh',color:'#1a3445'}}>
+          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445'}}>
               <div className="mainpage container">
                   <div className="row">
                   <div className="twelve columns content-holder">
-                    <h1 className={'process-title active'}> say hello!</h1>
                   </div>
                 </div>
               </div>
@@ -205,9 +208,9 @@ export default class Process extends Component {
 
         </div>
         {/*** Dynamic content without moving ***/}
-        <div  style={{display:'flex',position:'fixed', top: '0',height:'100vh',width:'100%', alignItems:'center'}}>
-            <div style={{width:'100%', maxWidth: '900px', margin:'auto'}}>
-                <ReactCSSTransitionGroup transitionName="process-title" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+        <div  style={{display:'flex',position:'fixed', top: '0',height:window.innerHeight + 'px',width:'100%', alignItems:'center'}}>
+            <div style={{width:'100%', maxWidth: '900px', margin:'auto', position:'relative'}}>
+                <ReactCSSTransitionGroup component="div" transitionName="process-title" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
                   {titleGenerator()} 
                 </ReactCSSTransitionGroup>
             </div>
@@ -241,8 +244,6 @@ export default class Process extends Component {
             </div>
         </div>
         </div>
-
-      </div>
     );
   }
 }

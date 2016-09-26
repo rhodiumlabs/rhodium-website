@@ -27,9 +27,6 @@ body {
   align-items: center;
 }
 .Site {
-  height: 100vh;
-
-
   .logo {
     font-size: 3.2rem;
     height: 70vh;
@@ -66,10 +63,6 @@ body {
   .tagline {
     color: #193446;
   }
-}
-
-.Site-content {
-  height:100vh;
 }
 
 path {
@@ -306,8 +299,12 @@ footer {
           visibility: visible;
           opacity: 1;
           transition: visibility 1s, opacity 0.2s linear;
-
-        }
+          .icon {
+              width: 30px;
+              height: 30px;
+              display: inline-block;
+          }
+        } 
       }
       .description {
         opacity: 0;
