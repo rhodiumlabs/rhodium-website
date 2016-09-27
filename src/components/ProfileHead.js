@@ -31,7 +31,7 @@ export default class ProfileHead extends Component {
   }
 
   render() {
-    let {people, image} = this.props;
+    let {people, image, healthapi} = this.props;
     let style = (image) ? {
                   backgroundImage:'url(/people.jpg)',
                   backgroundPosition: `-${167*this.state.pos}px -${167*this.props.pos}px`
@@ -56,12 +56,15 @@ export default class ProfileHead extends Component {
                        <div className="description" style={this.props.last ? {right: '0'}: {}}>
                         <div className="name">{people.name}</div>
                         <div className="title">{people.title}</div>
+                        {healthapi ? 
+                        [<div className="city">
+                          <div className="icon"></div>
+                          {healthapi && healthapi.city}, {healthapi && healthapi.state}
+                        </div>,
                         <div className="steps">
-                          {people.health && people.health.steps}
-                        </div>
-                        <div className="city">
-                          {people.health && people.health.city}
-                        </div>
+                          <div className="icon"></div> {healthapi && healthapi.steps}
+                        </div>] : null }
+
                       </div>
                 </div>
     );

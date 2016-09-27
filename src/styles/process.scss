@@ -49,8 +49,9 @@
     }
     
     ul.inline-list li {
-      width:100%;
+      width:35%;
       margin-left: 1em;
+      display:inline-block;
       &:before {
         content: '>';
         padding-right: 5px;
@@ -178,7 +179,7 @@
         height: inherit;
         h1 { 
           font-size: 4rem;
-          margin:1rem 0rem;
+          margin:2rem 0rem;
         }
         h6 {
           margin-top:1rem;
@@ -224,13 +225,12 @@
         font-size: 7em;
       }
 
-      img {
+      .header-icon {
         height: 100px;
         width: 100px;
-        position:absolute;
-        right:-100px;
-        top:0;
+        display:inline-block;
         transition: opacity 0.2s ease-in-out;
+        background-size: contain;
       }
       &.active.last {
         .button {
@@ -244,10 +244,12 @@
       left: 20px;
       position: fixed;
       display: block;
-      top: 60px;
-      img {
-        height: 100px;
-        width: 100px;
+      top: 130px;
+      .header-icon {
+        height: 1em;
+        width: 1em;
+        display:inline-block;
+        background-size: contain;
         transition: opacity 0.2s ease-in-out;
       }
       &.active.last {
@@ -257,7 +259,7 @@
         }
       }
       &.active {
-        top: 100px;
+        top: 200px;
         font-size: 3em;
       }
   }

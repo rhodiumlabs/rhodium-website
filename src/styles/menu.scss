@@ -148,6 +148,9 @@
         padding-top: 20px;
         background: $pink;
         color:white;
+        .icon {
+            filter: invert(100%);
+        }
 
       }
     } 

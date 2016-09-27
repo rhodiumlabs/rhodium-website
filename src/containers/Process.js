@@ -14,7 +14,7 @@ export default class Process extends Component {
   }
   componentDidMount() {
 
-    this.scroll = new IScroll(this.wrapper,{scrollbars: true,click:true,preventDefault: false,bounceEasing:'quadratic', mouseWheel: true, snapThreshold:'0.1',momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
+    this.scroll = new IScroll(this.wrapper,{scrollbars: true,click:true,preventDefault: true,bounceEasing:'quadratic', mouseWheel: true, snapThreshold:'0.1',momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
     //setTimeout(() => {new Vivus('insight', {duration: 500, file: '/icons/insight.svg'});}, 200);
     setInterval(()=> {
       if(this.scroll.currentPage.pageY !== this.state.currentPage) {
@@ -46,11 +46,11 @@ export default class Process extends Component {
         return <h1 key='start' className={className} ><span></span> </h1>;
       }
       else if(this.state.currentPage >= 1 && this.state.currentPage < 5)
-        return <h1 key='insight' className={className} ><span>insight</span><img style={{opacity: this.state.currentPage == 1 ? '1': '0'}} src="/icons/insight.svg"/></h1>;
+        return <h1 key='insight' className={className} ><span>insight</span><div className={'header-icon'} style={{opacity: this.state.currentPage == 1 ? '1': '0', backgroundImage:"url('/icons/insight.svg')"}} /></h1>;
       else if(this.state.currentPage >= 5 && this.state.currentPage < 9)
-        return <h1 key='invent'  className={className}  style={{color:'white'}}>invent<img style={{opacity: this.state.currentPage == 5 ? '1': '0'}} src="/icons/invent.svg"/></h1>;
+        return <h1 key='invent'  className={className}  style={{color:'white'}}>invent<div className={'header-icon'} style={{opacity: this.state.currentPage == 5 ? '1': '0', backgroundImage:"url('/icons/invent.svg')"}}/></h1>;
       else if(this.state.currentPage >= 9 && this.state.currentPage < 14)
-        return <h1 key='implement' className={className} > implement<img style={{opacity: this.state.currentPage == 9 ? '1': '0'}} src="/icons/implement.svg"/></h1>;
+        return <h1 key='implement' className={className} > implement<div className={'header-icon'} style={{opacity: this.state.currentPage == 9 ? '1': '0', backgroundImage:"url('/icons/implement.svg')"}}/></h1>;
       else if(this.state.currentPage == 14)
         return <h1 className={'process-title active last'} > say hello! <Link className="button" to={'/contact'}>Talk to us ></Link> </h1>;
       else 
@@ -77,10 +77,10 @@ export default class Process extends Component {
       return 0
     }
     return (
-        <div ref={(ref) => this.wrapper = ref} style={{height:window.innerHeight + 'px', position:'absolute', top:'0', width:'100%',overflow:'hidden'}} >
+        <div ref={(ref) => this.wrapper = ref} style={{position:'absolute', top:'0',left:'0', width:'100%',height:'100%', overflow:'hidden'}} >
         <div ref={(ref) => this.slideContainer = ref} 
-          className="process-page" style={{height:'auto'}}>
-          <section className={'panel'} style={{zIndex:5, position:'relative', height: window.innerHeight + 'px'}}>
+          className="process-page" style={{height:'auto',position:'absolute'}}>
+          <section className={'panel'} style={{position:'relative', zIndex:5, height: window.innerHeight + 'px'}}>
               <div className="mainpage container">
               <div className="content-holder row">
               <div className="twelve columns">
