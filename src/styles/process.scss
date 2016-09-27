@@ -217,7 +217,7 @@
     transition: all 0.5s ease-in-out;
   }
   @include desktop {
-      transform: translate(0%, -150%);
+      transform: translate(0%, -120%);
       font-size: 3.5em;
       &.active {
         
