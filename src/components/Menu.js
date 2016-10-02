@@ -21,9 +21,8 @@ export default class Menu extends Component {
   }
   render() {
     let {open, actions} = this.props;
-    let isProcess = this.props.route == '/process'
     return (
-      <div id="menu" style={isProcess ? {height:'0px'} : {}} className={`container ${this.state.scrolled ? 'scrolled': ''} ${open ? 'open' : ''}`}>
+      <div id="menu" className={`container ${this.state.scrolled ? 'scrolled': ''} ${open ? 'open' : ''}`}>
         <div className="row">
         <div className="twelve columns">
         <div>

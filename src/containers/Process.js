@@ -15,14 +15,18 @@ export default class Process extends Component {
   componentDidMount() {
 
     this.scroll = new IScroll(this.wrapper,{scrollbars: true,click:true,preventDefault: true,bounceEasing:'quadratic', mouseWheel: true, snapThreshold:'0.1',momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
-    //setTimeout(() => {new Vivus('insight', {duration: 500, file: '/icons/insight.svg'});}, 200);
-    setInterval(()=> {
+    
+    this.interval = setInterval(()=> {
       if(this.scroll.currentPage.pageY !== this.state.currentPage) {
         this.setState({currentPage: this.scroll.currentPage.pageY});
       }
     }, 100);
 
   }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  
   render() {
     const navigationWidth = () => {
       if(typeof(this.state.currentPage) === "undefined" ) {
