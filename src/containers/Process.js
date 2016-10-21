@@ -107,7 +107,7 @@ export default class Process extends Component {
           {contentGenerator('#1a3445','#E9C77B','seminars', 'With an in-depth look at smart contracts, cryptocurrencies, and connected devices, these one hour seminars create an space for you to learn why they are affecting your industry.')}
           {contentGenerator('#1a3445','#E9C77B','workshop', 'From blockchain to AI, haptics, and ambient computing, these three hour hands on experiences are designed to immerse you in the inner workings of these fields and apply new concepts to your experience.')}
 
-          {contentGenerator('white','#E2B49A','', 'We dive deep into your industry\'s potential. We help you take advantage of upcoming opportunities and face challenges head on.', true)}
+          {contentGenerator('white','#E2B49A','', 'We dive deep into your industry\'s potential. You take advantage of upcoming opportunities and face challenges head on with our advice.', true)}
           {contentGenerator('white','#E2B49A','awareness', 'We identify and develop business innovation using analytics and immersion research. We work with you to understand the industry and users through trends, human factors research, attribute mapping, and cultural validation.')}
           {contentGenerator('white','#E2B49A','strategize',             'We define a strategy by diagnosing the problems, set guiding policies, and plan coherent actions so you achieve big leaps forward when the opportunity arises.')}
           {contentGenerator('white','#E2B49A','industry',       'If your company is considering a new implementations using these technologies, we are here to help. We work with you to create the best team, make technical choices, and conduct your business throughout the field.')}
@@ -116,7 +116,7 @@ export default class Process extends Component {
           {contentGenerator('#1a3445','#c4d4e0','', 'We help you construct functional prototypes while testing in an agile cycle. From sprinting to the most innovative ideas or end to end productization, we help you create the next best solution.',true)}
           {contentGenerator('#1a3445','#c4d4e0','Hackathons and sprints give you the freedom to experiment with new technologies in established industries. You can go from idea to working prototype with our guides and mentors to discover the future of your organization’s industry')}
           {contentGenerator('#1a3445','#c4d4e0','experiment', 'Our team help you uncover and build specific proof of concepts for your business’s needs and strategy. We work with you to gain insight, invent and implement solutions in a fast-paced setting.')}
-          {contentGenerator('#1a3445','#c4d4e0','engineer', 'We apply extreme-programming and use an rapid, iterative approach to building products. By architecting your product and use our insights we help you achieve the your goals. This service requires serious commitment from you, as it is a extraordinarily technical and advanced offering.')}        
+          {contentGenerator('#1a3445','#c4d4e0','engineer', 'We apply extreme-programming and use an rapid, iterative approach to building products. By architecting your product and using our insights we help you set and achieve your goals. This service requires serious commitment from you, as it is a extraordinarily technical and advanced offering.')}        
           <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445'}}>
               <div className="mainpage container">
                   <div className="row">
