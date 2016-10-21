@@ -38,25 +38,25 @@ export default class Process extends Component {
         return 20+(this.state.currentPage - 1) * 5;
       else if(this.state.currentPage > 5 && this.state.currentPage <= 9)
         return 40+((this.state.currentPage - 5) * 5);
-      else if(this.state.currentPage > 9 && this.state.currentPage < 14)
-        return 60+((this.state.currentPage - 9) * 4);
+      else if(this.state.currentPage > 10 && this.state.currentPage < 14)
+        return 60+((this.state.currentPage - 10) * 4);
       else 
         return 80;
     }
     const titleGenerator = () => {
 
-      let className = 'process-title ' + ([1,5,9].includes(this.state.currentPage) ? 'active': '');
+      let className = 'process-title ' + ([1,5,10].includes(this.state.currentPage) ? 'active': '');
       if(this.state.currentPage == 0) {
         return <h1 key='start' className={className} ><span></span> </h1>;
       }
       else if(this.state.currentPage >= 1 && this.state.currentPage < 5)
-        return <h1 key='insight' className={className} ><span>insight</span><div className={'header-icon'} style={{opacity: this.state.currentPage == 1 ? '1': '0', backgroundImage:"url('/icons/insight.svg')"}} /></h1>;
-      else if(this.state.currentPage >= 5 && this.state.currentPage < 9)
-        return <h1 key='invent'  className={className}  style={{color:'white'}}>invent<div className={'header-icon'} style={{opacity: this.state.currentPage == 5 ? '1': '0', backgroundImage:"url('/icons/invent.svg')"}}/></h1>;
-      else if(this.state.currentPage >= 9 && this.state.currentPage < 14)
-        return <h1 key='implement' className={className} > implement<div className={'header-icon'} style={{opacity: this.state.currentPage == 9 ? '1': '0', backgroundImage:"url('/icons/implement.svg')"}}/></h1>;
+        return <h1 key='discover' className={className} > discover <div className={'header-icon'} style={{opacity: this.state.currentPage == 1 ? '1': '0', backgroundImage:"url('/icons/insight.svg')"}} /></h1>;
+      else if(this.state.currentPage >= 5 && this.state.currentPage < 10)
+        return <h1 key='advise'  className={className} style={{color:'white'}}> advise <div className={'header-icon'} style={{opacity: this.state.currentPage == 5 ? '1': '0', backgroundImage:"url('/icons/invent.svg')"}}/></h1>;
+      else if(this.state.currentPage >= 10 && this.state.currentPage < 14)
+        return <h1 key='build' className={className} > build<div className={'header-icon'} style={{opacity: this.state.currentPage == 10 ? '1': '0', backgroundImage:"url('/icons/implement.svg')"}}/></h1>;
       else if(this.state.currentPage == 14)
-        return <h1 className={'process-title active last'} > say hello! <Link className="button" to={'/contact'}>Talk to us ></Link> </h1>;
+        return <h1 className={'process-title active last'} >  <Link to={'/contact'} className='say-hello'>say hello!</Link> </h1>;
       else 
         return null;
 
@@ -66,7 +66,7 @@ export default class Process extends Component {
         return <section className='panel' style={{position:'relative', height: window.innerHeight + 'px',color:color, background:background}}>
             <div className='mainpage container'>  
               {header ? <div className="twelve columns content-holder header-page"><h6>{content}</h6></div> : 
-                [<div className="four columns content-holder "><h1 style={{color:color}}>{title}</h1></div>,
+                [<div className="four columns content-holder "><h3 style={{color:color}}>{title}</h3></div>,
                 <div className="eight columns content-holder"><h6>{content}</h6></div>]
               }
               
@@ -89,117 +89,34 @@ export default class Process extends Component {
               <div className="content-holder row">
               <div className="twelve columns">
                 <h1>process</h1>
-                <p style={{fontSize:'2.1rem'}}> We create <b>products</b>, <b>services</b>, and <b>experiences</b> that hide their technological prowess, elicit delight, and demonstrate simplicity and value. 
+                <p style={{fontSize:'2.1rem'}}> 
+                  We create experiences and products to train, advise, and build decentralized applications, 
+                  and ambient intelligence in your industry.
                 </p>
-
-                <p style={{fontSize:'2.1rem'}}>Here’s how we do it.</p>
+                <p style={{fontSize:'2.1rem'}}>
+                  Here’s how we do it.
+                </p>
               </div>
               </div>
               </div>  
 
               <div className="arrow bounce"></div>
           </section> 
-          {contentGenerator('#1a3445','#E9C77B', '', 'We engage stakeholders of established companies and disruptive startups to awaken curiosity, create dialogue, and drive actions to solve systemic challenges. Learn more about our insight process.', true)}
-          {contentGenerator('#1a3445','#E9C77B','explore lab', 'Imagine your team controlling a drone with their brain as it flies through the air competing against an AI bot all while 3D printing a VR headset! With our library of cutting edge technologies, attendees won’t sit and listen to lectures on why technology matters, they’ll experience it.')}
-          {contentGenerator('#1a3445','#E9C77B','hackathon', 'Hackathons provide the freedom to experiment and create. We help you drive discussion about the implications of emerging technology on the future of your industry and create an ongoing dialogue about thinking differently.')}
-          {contentGenerator('#1a3445','#E9C77B','workshop', 'From blockchain to AI, haptics, ambient computing and more, our refreshing learning experiences are designed to engage attendees with challenging educational projects that get them deeply immersed in a range of emerging technologies.')}
+          {contentGenerator('#1a3445','#E9C77B', '', 'We teach stakeholders of established companies to uncover the changes and  opportunities decentralized systems and ambient intelligence  will have on their industries, and where to find more information.', true)}
+          {contentGenerator('#1a3445','#E9C77B','explore labs', 'Imagine your team controlling a drone with their brain as it flies through the air competing against an AI bot all while 3D printing a VR headset! With our library of cutting edge technologies, attendees won’t sit and listen to lectures on why technology matters, they’ll experience it.')}
+          {contentGenerator('#1a3445','#E9C77B','seminars', 'With an in-depth look at decentralized systems and ambient intelligence, these one hour seminars create an open space for professionals to learn why they affect their industry.')}
+          {contentGenerator('#1a3445','#E9C77B','workshop', 'From blockchain to AI, haptics, ambient computing and more, these two to three hour learning experiences are designed to engage professionals with educational projects that get them immersed in decentralized systems, and ambient intelligence. We educate at any level- those with no previous experience to those who are senior decentralized developers.')}
 
-          {contentGenerator('white','#E2B49A','', 'We explore unrealised needs and behaviors, and use our insight to dive deep into problems. We develop innovation strategies to create unprecedented opportunities. We then build prototypes to validate our learnings and iterate.', true)}
-          {contentGenerator('white','#E2B49A','discover', 'We identify and develop new opportunities for business innovation using analytics and immersion research. We study your industry and your user through trends, human factors research, attribute mapping, and cultural validation, etc.')}
-          {contentGenerator('white','#E2B49A','strategize', 'With a deeper understanding of the problem, we conduct sprints to diagnose problems, set guiding policies, and plan coherent actions. We craft strategies and deliver clear and actionable guidance to our client partners to achieve big leaps forward.')}
-          {contentGenerator('white','#E2B49A','prototype', 'We love to build stuff. This is when our engineers and designers convene to conduct rapid prototyping. We build experience prototypes to validate, appearance prototypes to iterate, and PoC prototypes to understand human interaction by making powerful, complex systems elegant, simple, and compelling.')}
-
-          {contentGenerator('#1a3445','#c4d4e0','', 'We construct functional prototypes while testing in an agile cycle. In this phase, we also create a production ready prototype that can scale to serve millions of your customers. We then guide you to successful commercialization.',true)}
-
-
-          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
-              <div className="mainpage container">
-                  <div className="row">
-                  <div className="four columns content-holder">
-                    <h1 style={{color:'#1a3445'}}>design</h1>
-                  </div>
-                  <div className="eight columns content-holder">
-                    <div>
-                      <h6>We apply design-thinking to everything from products to services to information to create systems and human experiences that underpin modern business and life.
-                      </h6>
-
-                      <ul className="inline-list">
-                          <li>Product </li> 
-                          <li>Service </li> 
-                          <li>Information </li> 
-                          <li>Industrial </li>  
-                          <li>Interaction </li> 
-                          <li>Identity</li> 
-
-                      </ul>
-                      </div>
-                  </div>
-                </div>
-              </div>
-          </section>
-          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
-              <div className="mainpage container">
-                  <div className="row">
-                  <div className="four columns content-holder">
-                    <h1 style={{color:'#1a3445'}}>develop</h1>
-                  </div>
-                  <div className="eight columns content-holder">
-                    <div>
-                      <h6>We apply extreme-programming and use an rapid, iterative approach to building products for physical and digital mediums.</h6>
-                      <ul className="inline-list">
-                          <li>Software  </li> 
-                          <li>Firmware  </li> 
-                          <li>Hardware </li> 
-
-                      </ul>
-                      </div>
-                  </div>
-                </div>
-              </div>
-          </section>
-
-          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
-              <div className="mainpage container">
-                  <div className="row">
-                  <div className="four columns content-holder">
-                    <h1 style={{color:'#1a3445'}}>engineer</h1>
-                  </div>
-                  <div className="eight columns content-holder">
-                  <div>
-                      <h6>We apply extreme-programming and use an rapid, iterative approach to building products for physical and digital mediums.</h6>
-                      <ul className="inline-list">
-                        <li>Electrical</li>
-                        <li>Mechanical </li>
-                        <li>Computer</li>
-                        <li>Biomedical </li>
-                        <li>Manufacturing</li>
-                        <li>QA/Testing</li>
-                      </ul>
-                      </div>
-                  </div>
-                </div>
-              </div>
-          </section>
-          <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445', background:'#c4d4e0'}}>
-              <div className="mainpage container">
-                  <div className="row">
-                  <div className="four columns content-holder">
-                    <h1 style={{color:'#1a3445'}}>productize</h1>
-                  </div>
-                  <div className="eight columns content-holder">
-                    <div>
-                      <h5>We finally focus on bringing to life the inherent value of the product, service, or experience through compelling activations.</h5>
-                      <ul className="inline-list">
-                        <li>Marketing</li>
-                        <li>Branding </li>
-                        <li>Launch</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </section>
-
+          {contentGenerator('white','#E2B49A','', 'We help you construct functional prototypes while testing in an agile cycle. In this phase, we also create a production ready prototype that can scale to serve millions of your customers. We then guide you to successful commercialization.', true)}
+          {contentGenerator('white','#E2B49A','awareness', 'Hackathons and sprints give the freedom for your employees to experiment and build with decentralized systems, and ambient intelligence, they go from idea to working prototype with our expertise. They using emerging technologies to discover and own the future of the organization’s industry.')}
+          {contentGenerator('white','#E2B49A','strategize',             'We define a strategy by diagnosing the problems, set guiding policies, and plan coherent actions so you know where you want to be in the fields of decentralized systems and ambient intelligence. We craft strategies and deliver clear and actionable guidance to our client to achieve big leaps forward.')}
+          {contentGenerator('white','#E2B49A','market expertise',       'If your company is considering a decentralized systems or ambient intelligence implementation, we are here to help. We review and work with you to guide your business or technical choices through the field. Our expertise allow us to guide you to create the best team or product with your specific decentralized goals.')}
+          {contentGenerator('white','#E2B49A','research',               'Not all ideas or problems have been solved, and our team can work together with recognized industry professionals to publish papers or use as supporting materials to fund your upcoming projects. These types of engagements require deep expertise and minimum of one month to be completed. ')}
+          
+          {contentGenerator('#1a3445','#c4d4e0','', 'We help you construct functional prototypes while testing in an agile cycle. In this phase, we also create a production ready prototype that can scale to serve millions of your customers. We then guide you to successful commercialization.',true)}
+          {contentGenerator('#1a3445','#c4d4e0','hackathons', 'Hackathons and sprints give the freedom for your employees to experiment and build with decentralized systems, and ambient intelligence, they go from idea to working prototype with our expertise. They using emerging technologies to discover and own the future of the organization’s industry.')}
+          {contentGenerator('#1a3445','#c4d4e0','proof of concept', 'Creating a decentralized systems, and ambient intelligence proof of concept or prototype requires expertise to be efficient. With our team of experts, if you need a specific project to be done well and built quickly- we are the right partner to work with.')}
+          {contentGenerator('#1a3445','#c4d4e0','engineer', 'When you decide to develop a production- ready application , we know you need more than just a proof-of-concept. We apply extreme-programming and use an rapid, iterative approach to building products for physical and digital mediums. We architect your product and use our insight and strategy to help you achieve the your goal. This service requires serious commitment from the client, it is a extraordinarily technical and advanced offering.')}        
           <section className={'panel'} style={{position:'relative', height: window.innerHeight + 'px',color:'#1a3445'}}>
               <div className="mainpage container">
                   <div className="row">
@@ -208,8 +125,6 @@ export default class Process extends Component {
                 </div>
               </div>
           </section>
-
-
         </div>
         {/*** Dynamic content without moving ***/}
         <div  style={{display:'flex',position:'fixed', top: '0',height:window.innerHeight + 'px',width:'100%', alignItems:'center'}}>
@@ -224,23 +139,20 @@ export default class Process extends Component {
             
             <div style={{margin:'auto', position:'relative'}}>
 
-              
               <div className={'scroll-point '+(this.state.currentPage > 0 ? 'active': '')} onClick={()=>{this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}><span style={{opacity:0}}>-</span>
                 <div className={'indicator'} style={{width:percentageNav(0,1)+'%', left:'10%'}}></div>
               </div>
               
-              
-
-              <div className={'scroll-point '+(this.state.currentPage >= 1 ? 'active': '')} onClick={()=>{this.setState({currentPage:1}); this.scroll.goToPage(0, 1, 1000);}}><span>insight</span>
+              <div className={'scroll-point '+(this.state.currentPage >= 1 ? 'active': '')} onClick={()=>{this.setState({currentPage:1}); this.scroll.goToPage(0, 1, 1000);}}><span>discover</span>
                 <div className={'indicator'} style={{width:percentageNav(1,5)+'%', left:'30%'}}></div>
               </div>
               
-              <div className={'scroll-point '+(this.state.currentPage >= 5 ? 'active': '')} onClick={()=>{this.setState({currentPage:5}); this.scroll.goToPage(0, 5, 1000);}}><span>invent</span>
-                 <div className={'indicator'} style={{width:percentageNav(5,9)+'%', left:'50%'}}></div>
+              <div className={'scroll-point '+(this.state.currentPage >= 5 ? 'active': '')} onClick={()=>{this.setState({currentPage:5}); this.scroll.goToPage(0, 5, 1000);}}><span>advise</span>
+                 <div className={'indicator'} style={{width:percentageNav(5,10)+'%', left:'50%'}}></div>
               </div>
              
-              <div className={'scroll-point '+(this.state.currentPage >= 9 ? 'active': '')} onClick={()=>{this.setState({currentPage:9}); this.scroll.goToPage(0, 9, 1000);}}><span>implement</span>
-                <div className={'indicator'} style={{width:percentageNav(9,13)+'%', left:'70%'}}></div>
+              <div className={'scroll-point '+(this.state.currentPage >= 10 ? 'active': '')} onClick={()=>{this.setState({currentPage:9}); this.scroll.goToPage(0, 10, 1000);}}><span>build</span>
+                <div className={'indicator'} style={{width:percentageNav(10,13)+'%', left:'70%'}}></div>
               </div>
               
               <div className={'scroll-point '+(this.state.currentPage >= 14 ? 'active': '')} onClick={()=>{this.setState({currentPage:14}); this.scroll.goToPage(0, 14, 1000);}}><span style={{opacity:0}}>-</span></div>

@@ -212,12 +212,21 @@
   position:absolute;
   font-size: 3.5em;
   font-family:'Spartan';
+  .say-hello {
+    text-decoration: none;
+    color: #1a3445;
+    cursor: pointer;
+    &:hover {
+      background: #1a3445;
+      color: white;
+    }
+  }
   &.active {
     opacity: 1.0;
     transition: all 0.5s ease-in-out;
   }
   @include desktop {
-      transform: translate(0%, -120%);
+      transform: translate(0%, -135%);
       font-size: 3.5em;
       &.active {
         
@@ -280,8 +289,6 @@
   opacity: 0.9;
 }
 .navigation {
-
-
     .scroll-point {
         &:hover {
           cursor: pointer;

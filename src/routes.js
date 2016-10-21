@@ -12,10 +12,10 @@ const routes = {
   component: Root,
   indexRoute: { component: App },
   childRoutes: [
+    {path:'/about', component: About},
+    {path:'/people',  component: People},
     {path:'/process', component: Process},
     {path:'/contact', component: Contact},
-    {path:'/people',  component: People},
-    {path:'/about', component: About}
   ]
 }
 export default routes;

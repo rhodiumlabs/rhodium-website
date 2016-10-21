@@ -6,7 +6,6 @@ import Menu from '../components/Menu';
 import * as MenuActions from '../actions/menuActions';
 import Tagline from '../components/Tagline';
 import TrianglifyComponent from '../components/TrianglifyContainer';
-import TextAlternator from '../components/TextAlternator';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 export class App extends Component {
   constructor(props) {

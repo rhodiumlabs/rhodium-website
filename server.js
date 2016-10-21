@@ -4,13 +4,15 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import { RoutingContext, match } from 'react-router';
 import { Provider } from 'react-redux';
+import os from 'os';
 import createLocation from 'history/lib/createLocation';
 
 import configureStore from './src/store/configureStore.prod';
 import routes from './src/routes';
 
 const port = process.env.PORT || 8080;
-const PUBLIC_DEV_SERVER = `http://localhost:4000`
+const hostname = os.hostname();
+const PUBLIC_DEV_SERVER = `http://${hostname}:4000`
 const app = express();
 const renderFullPage = (html, initialState) => {
   return `
