@@ -3,8 +3,9 @@ import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import IScroll from '../components/iscroll';
-
 import {Link} from 'react-router';
+
+
 export default class Process extends Component {
   constructor(props) {
     super(props);
@@ -12,17 +13,28 @@ export default class Process extends Component {
       margins: [0,0,0]
     };
   }
+
   componentDidMount() {
+    this.scroll = new IScroll(this.wrapper, {
+      scrollbars: true,
+      click: true,
+      preventDefault: true,
+      bounceEasing: 'quadratic',
+      mouseWheel: true,
+      snapThreshold: '0.1',
+      momentum: false,
+      blockMomentum: true,
+      snap: '.panel',
+      momentumTimeout: 1200
+    });
 
-    this.scroll = new IScroll(this.wrapper,{scrollbars: true,click:true,preventDefault: true,bounceEasing:'quadratic', mouseWheel: true, snapThreshold:'0.1',momentum: false, blockMomentum:true, snap:'.panel', momentumTimeout: 1200});
-
-    this.interval = setInterval(()=> {
-      if(this.scroll.currentPage.pageY !== this.state.currentPage) {
+    this.interval = setInterval(() => {
+      if (this.scroll.currentPage.pageY !== this.state.currentPage) {
         this.setState({currentPage: this.scroll.currentPage.pageY});
       }
     }, 100);
-
   }
+
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -43,8 +55,8 @@ export default class Process extends Component {
       else
         return 80;
     }
-    const titleGenerator = () => {
 
+    const titleGenerator = () => {
       let className = 'process-title ' + ([1,5,10].includes(this.state.currentPage) ? 'active': '');
       if(this.state.currentPage == 0) {
         return <h1 key='start' className={className} ><span></span> </h1>;
@@ -59,7 +71,6 @@ export default class Process extends Component {
         return <h1 className={'process-title active last'} >  <Link to={'/contact'} className='say-hello'>say hello!</Link> </h1>;
       else
         return null;
-
     }
 
     const contentGenerator = (color, background, title, content, header=false) => {
@@ -74,34 +85,48 @@ export default class Process extends Component {
             </div>
         </section>
     }
+
     const percentageNav = (start, end) => {
       if(!this.state.currentPage) return 0;
       if(this.state.currentPage > end) return 16;
       if(this.state.currentPage >= start) return 16*((this.state.currentPage-start)/(end-start));
       return 0
     }
-    return (
-        <div ref={(ref) => this.wrapper = ref} style={{position:'absolute', top:'0',left:'0', width:'100%',height:'100%', overflow:'hidden'}} >
-        <div ref={(ref) => this.slideContainer = ref}
-          className="process-page" style={{height:'auto',position:'absolute'}}>
-          <section className={'panel'} style={{position:'relative', zIndex:5, height: window.innerHeight + 'px'}}>
-              <div className="mainpage container">
-              <div className="content-holder row">
-              <div className="twelve columns">
-                <h1>process</h1>
-                <p style={{fontSize:'2.1rem'}}>
-                  We offer training, advisory, and development of decentralized applications,
-                  and ambient intelligence for your industry.
-                </p>
-                <p style={{fontSize:'2.1rem'}}>
-                  Here’s how we do it.
-                </p>
-              </div>
-              </div>
-              </div>
 
-              <div className="arrow bounce"></div>
+    return (
+      <div
+          ref={(ref) => this.wrapper = ref}
+          style={{
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height:'100%',
+            overflow:'hidden'
+          }}>
+        <div
+            ref={(ref) => this.slideContainer = ref}
+            className="process-page"
+            style={{height: 'auto', position: 'absolute'}}>
+
+          <section className={'panel'} style={{position:'relative', zIndex:5, height: window.innerHeight + 'px'}}>
+            <div className="mainpage container">
+              <div className="content-holder row">
+                <div className="twelve columns">
+                  <h1>process</h1>
+                  <p style={{fontSize: '2.1rem'}}>
+                    We offer training, advisory, and development of decentralized applications,
+                    and ambient intelligence for your industry.
+                  </p>
+                  <p style={{fontSize: '2.1rem'}}>
+                    Here’s how we do it.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="arrow bounce"></div>
           </section>
+
           {contentGenerator('#1a3445','#E9C77B', '', 'We work with stakeholders of established companies to uncover the changes and  opportunities that emerging tech will have on their industries and where to find more information.', true)}
           {contentGenerator('#1a3445','#E9C77B','explore labs', 'Imagine your team controlling a drone with wearable technology competing against a bot. You don’t sit and listen to lectures on why technology matters - you experience it. ')}
           {contentGenerator('#1a3445','#E9C77B','seminars', 'With an in-depth look at smart contracts, cryptocurrencies, and connected devices, these one hour seminars create an space for you to learn why they are affecting your industry.')}
@@ -162,14 +187,12 @@ export default class Process extends Component {
             }}>
 
           <div style={{margin:'auto', position:'relative'}}>
-
             <div
                 className={'scroll-point '+(this.state.currentPage > 0 ? 'active': '')}
                 onClick={() => {this.setState({currentPage:0}); this.scroll.goToPage(0, 0, 1000);}}>
               <span style={{opacity:0}}>-</span>
               <div className={'indicator'} style={{width: percentageNav(0, 1) + '%', left: '10%'}}></div>
             </div>
-
             <div
                 className={'scroll-point '+(this.state.currentPage >= 1 ? 'active': '')}
                 onClick={() => {
@@ -179,7 +202,6 @@ export default class Process extends Component {
               <span>discover</span>
               <div className={'indicator'} style={{width: percentageNav(1,5)+'%', left: '30%'}}></div>
             </div>
-
             <div
                 className={'scroll-point '+(this.state.currentPage >= 5 ? 'active' : '')}
                 onClick={() => {
@@ -189,7 +211,6 @@ export default class Process extends Component {
               <span>advise</span>
               <div className={'indicator'} style={{width:percentageNav(5,10)+'%', left:'50%'}}></div>
             </div>
-
             <div
                 className={'scroll-point '+(this.state.currentPage >= 10 ? 'active' : '')}
                 onClick={() => {
@@ -197,21 +218,22 @@ export default class Process extends Component {
                   this.scroll.goToPage(0, 10, 1000);
                 }}>
               <span>build</span>
-              <div className={'indicator'} style={{width:percentageNav(10,13)+'%', left:'70%'}}></div>
+              <div
+                className={'indicator'}
+                style={{width: percentageNav(10, 13)+'%', left: '70%'}}></div>
             </div>
-
             <div
                 className={'scroll-point '+(this.state.currentPage >= 14 ? 'active': '')}
                 onClick={() => {
-                  this.setState({currentPage:14});
+                  this.setState({currentPage: 14});
                   this.scroll.goToPage(0, 14, 1000);
                 }}>
-              <span style={{opacity:0}}>-</span>
-              </div>
+              <span style={{opacity: 0}}>-</span>
             </div>
-
           </div>
+
         </div>
+      </div>
     );
   }
 }
