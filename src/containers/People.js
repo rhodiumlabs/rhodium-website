@@ -37,31 +37,7 @@ export default class People extends Component {
         title: 'Co-Founder + Partner',
         knowledge: 'Full Stack Developer, Data Visualization, UI/UX, etc.',
 
-      }, {
-        name: 'Ayvi Islam',
-        nameAPI: 'Ayvi',
-        knowledge: 'Product Design, Mechanical Engineering, etc.',
-
-      }, {
-        name: 'Colin Gallacher',
-        nameAPI: 'Colin',
-        knowledge: 'Robotics, Augmented Reality, Haptics, etc.',
-
-      }, {
-        name: 'Zafarali Ahmed',
-        nameAPI: 'Zafarali',
-        knowledge: 'Biosimulation, Cancer Genomics, Machine Learning, etc.',
-
-      }, {
-        name: 'Anjali Chandrashekar',
-        nameAPI: 'Anjali',
-        knowledge: 'Product Design',
-
-      }, {
-        name: 'Mohammad Rafsan',
-        nameAPI: 'Rafsan',
-        knowledge: 'Distributed Computing',
-    }];
+      }];
     this.state = {health:{}};
   }
 
