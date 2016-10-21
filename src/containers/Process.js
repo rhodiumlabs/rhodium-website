@@ -6,6 +6,22 @@ import IScroll from '../components/iscroll';
 import {Link} from 'react-router';
 
 
+const PageSection = (props) => {
+  const contentGenerator = (color, background, title, _content, header=false) => {
+      return <section className='panel' style={{position:'relative', height: window.innerHeight + 'px',color:color, background:background}}>
+          <div className='mainpage container'>
+            {header ? <div className="twelve columns content-holder header-page"><h6><span>{props.children}</span></h6></div> :
+              [<div className="four columns content-holder "><h3 style={{color:color}}>{title}</h3></div>,
+              <div className="eight columns content-holder"><h6>{content}</h6></div>]
+            }
+          </div>
+      </section>
+  }
+
+  return contentGenerator(props.color, props.background, props.title, props.content, props.header ? true : false);
+}
+
+
 export default class Process extends Component {
   constructor(props) {
     super(props);
@@ -80,8 +96,6 @@ export default class Process extends Component {
                 [<div className="four columns content-holder "><h3 style={{color:color}}>{title}</h3></div>,
                 <div className="eight columns content-holder"><h6>{content}</h6></div>]
               }
-
-
             </div>
         </section>
     }
@@ -127,8 +141,27 @@ export default class Process extends Component {
             <div className="arrow bounce"></div>
           </section>
 
-          {contentGenerator('#1a3445','#E9C77B', '', 'We work with stakeholders of established companies to uncover the changes and  opportunities that emerging tech will have on their industries and where to find more information.', true)}
-          {contentGenerator('#1a3445','#E9C77B','explore labs', 'Imagine your team controlling a drone with wearable technology competing against a bot. You don’t sit and listen to lectures on why technology matters - you experience it. ')}
+
+
+          <PageSection color="#1a3445" background="#E9C77B" title="" header={true}>
+            Vie work with stakeholders of established companies to
+            uncover the changes and  opportunities that emerging tech will
+            have on their industries and where to find more information.
+          </PageSection>
+
+
+
+
+
+
+          {contentGenerator(
+            '#1a3445',
+            '#E9C77B',
+            'explore labs',
+            'Imagine your team controlling a drone with wearable technology competing against a bot. You don’t sit and listen to lectures on why technology matters - you experience it. '
+          )}
+
+
           {contentGenerator('#1a3445','#E9C77B','seminars', 'With an in-depth look at smart contracts, cryptocurrencies, and connected devices, these one hour seminars create an space for you to learn why they are affecting your industry.')}
           {contentGenerator('#1a3445','#E9C77B','workshop', 'From blockchain to AI, haptics, and ambient computing, these three hour hands on experiences are designed to immerse you in the inner workings of these fields and apply new concepts to your experience.')}
 
