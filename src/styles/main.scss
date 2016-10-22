@@ -12,9 +12,10 @@
 body {
   font-family: 'Montserrat-Light';
   margin:0;
-  padding:0;
-}
 
+  padding:0;
+
+}
 .flexbox-container {
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -26,10 +27,15 @@ body {
 
   align-items: center;
 }
+#root {
+      position: relative;
+    min-height: 100%;
+}
+.Site-content {
+    height: 100%;
+}
 .Site {
-  height: 100vh;
-
-
+  height: 100%;
   .logo {
     font-size: 3.2rem;
     height: 70vh;
@@ -66,10 +72,6 @@ body {
   .tagline {
     color: #193446;
   }
-}
-
-.Site-content {
-  height:100vh;
 }
 
 path {
@@ -114,7 +116,6 @@ ul
 .mainpage.container {
   max-width: 900px;
   width: 100%;
-    padding-right: 20px;
     margin: auto;
     p {
 
@@ -308,7 +309,9 @@ footer {
           opacity: 1;
           transition: visibility 1s, opacity 0.2s linear;
 
-        }
+
+
+        } 
       }
       .description {
         opacity: 0;
@@ -316,7 +319,7 @@ footer {
         visibility: hidden;
         position: absolute;
         top: 100%;
-        width: 190%;
+        width: 193%;
         background: #e9c77b;
         z-index: 100;
         padding-left: 29px;
@@ -334,6 +337,30 @@ footer {
           font-size: small;
           margin-top:10px;
         }
+          .steps,.city {
+            display: inline-block;
+            padding: 0;
+            font-size: 0.8em;
+            opacity: 0.78;
+          }
+        .city {
+            margin-top: 1em;
+            margin-right: 2em;
+          }
+          .steps .icon, .city .icon  {
+              width: 1.2em;
+              height: 1.2em;
+              display: inline-block;
+              opacity: 0.7;
+              background-repeat: no-repeat;
+              background-position: 50% 50%;
+          }
+          .steps .icon {
+            background-image: url('/icons/step.svg')
+          }
+          .city .icon {
+            background-image: url('/icons/location.svg')
+          }
       }
 
      }

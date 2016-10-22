@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const config = require('./webpack.config');
-const hostname = 'localhost';
+const hostname = require('os').hostname();
 const app = express();
 const port = 4000;
 const PUBLIC_DEV_SERVER = `http://${hostname}:${port}/`
@@ -21,7 +21,7 @@ config.plugins = [
 ]
 config.output = {
     path: path.join(__dirname, 'public'),
-    filename: 'react-app-bundle.js',
+    filename: 'bundle.js',
     publicPath: PUBLIC_DEV_SERVER
 }
 const compiler = webpack(config);
@@ -35,7 +35,7 @@ console.log(config.output.publicPath);
 app.use(require('webpack-hot-middleware')(compiler));
 
 
-app.listen(port, 'localhost', (err) => {
+app.listen(port, hostname, (err) => {
   if (err) {
     console.log(err);
     return;

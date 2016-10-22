@@ -53,7 +53,7 @@
 }
 
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 736px) {
 .Site {
   .mainpage {
       min-height: inherit;
@@ -126,8 +126,10 @@
       }
     }
   }
-  .mainpage {
-    padding-top: 130px !important;
+  .mainpage.container {
+    padding-top: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
   } 
   .people .person .profile-head {
       &:hover {
@@ -146,6 +148,9 @@
         padding-top: 20px;
         background: $pink;
         color:white;
+        .icon {
+            filter: invert(100%);
+        }
 
       }
     } 

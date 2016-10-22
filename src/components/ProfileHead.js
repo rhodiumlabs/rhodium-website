@@ -31,36 +31,38 @@ export default class ProfileHead extends Component {
   }
 
   render() {
-    let {people, image} = this.props;
+    let {people, image, healthapi} = this.props;
     let style = (image) ? {
                   backgroundImage:'url(/people.jpg)',
                   backgroundPosition: `-${167*this.state.pos}px -${167*this.props.pos}px`
                 } : {}
     
     return (
-                <div className='profile-head' ref={(ref) => this.elem = ref} style={style}
-                  onClick={()=>this.setState({toggle:!this.state.toggle})}
-                >
-
-                    <div className="element" 
-                      style={{
-                            position: 'absolute',
-                            bottom: '0',
-                            background: '#1a3445',
-                            color: 'white',
-                            padding: '2px 6px 5px 6px',
-                            fontWeight: 'bold'}}>{people.name.toLowerCase().split(' ')[0][0]+people.name.toLowerCase().split(' ')[1][0]}
-
-
-                    </div>
-                       <div className="description" style={this.props.last ? {right: '0'}: {}}>
-                        <div className="name">{people.name}</div>
-                       
-                        <div className="title">{people.title}</div>
-                        
-
-                      </div>
+            <div className='profile-head' ref={(ref) => this.elem = ref} style={style}
+              onClick={()=>this.setState({toggle:!this.state.toggle})}
+            >
+                <div className="element" 
+                  style={{
+                        position: 'absolute',
+                        bottom: '0',
+                        background: '#1a3445',
+                        color: 'white',
+                        padding: '2px 6px 5px 6px',
+                        fontWeight: 'bold'}}>{people.name.toLowerCase().split(' ')[0][0]+people.name.toLowerCase().split(' ')[1][0]}
                 </div>
+                <div className="description" style={this.props.last ? {right: '0'}: {}}>
+                  <div className="name">{people.name}</div>
+                  <div className="title">{people.title}</div>
+                  {healthapi ? 
+                  [<div className="city">
+                    <div className="icon"></div>
+                    {healthapi && healthapi.city}, {healthapi && healthapi.state}
+                  </div>,
+                  <div className="steps">
+                    <div className="icon"></div> {healthapi && healthapi.steps}
+                  </div>] : null }
+                </div>
+            </div>
     );
   }
 }

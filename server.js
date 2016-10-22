@@ -4,18 +4,22 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import { RoutingContext, match } from 'react-router';
 import { Provider } from 'react-redux';
+import os from 'os';
 import createLocation from 'history/lib/createLocation';
 
-import {configureStore} from './src/store/configureStore';
+import configureStore from './src/store/configureStore.prod';
 import routes from './src/routes';
 
+const port = process.env.PORT || 8080;
+const hostname = os.hostname();
+const PUBLIC_DEV_SERVER = `http://${hostname}:4000`
 const app = express();
 const renderFullPage = (html, initialState) => {
   return `
     <!doctype html>
     <html>
       <head>
-        <title>Rhodium</title>
+        <title>Rhodium Labs</title>
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favico/apple-touch-icon-57x57.png" />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favico/apple-touch-icon-114x114.png" />
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favico/apple-touch-icon-72x72.png" />
@@ -37,9 +41,11 @@ const renderFullPage = (html, initialState) => {
         <meta name="msapplication-wide310x150logo" content="/favico/mstile-310x150.png" />
         <meta name="msapplication-square310x310logo" content="/favico/mstile-310x310.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="rhodium is a technology studio with expertise in ambient intelligence and decentralized systems. We assemble multidisciplinary teams to tackle challenges in healthcare, education, and financial services.">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-        <link rel="stylesheet" href="/dist/styles.css">
+        ${(process.env.NODE_ENV === 'production') ? '<link rel="stylesheet" href="/dist/styles.css">' : '' }
         <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -54,19 +60,13 @@ const renderFullPage = (html, initialState) => {
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}; 
         </script>
-        <script src="/dist/bundle.js"></script>
+        ${(process.env.NODE_ENV === 'production') ? '<script src="/dist/bundle.js"></script>': '<script src="'+PUBLIC_DEV_SERVER+'/bundle.js"></script>'}
       </body>
     </html>
   `;
 }
 
-/*if(process.env.NODE_ENV !== 'production'){
-  const compiler = webpack(webpackConfig);
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-  app.use(webpackHotMiddleware(compiler));
-}else{*/
-  app.use('/', express.static(__dirname + '/public/'));
-//}
+app.use('/', express.static(__dirname + '/public/'));
 
 app.get('/*', function (req, res) {
 
@@ -90,22 +90,14 @@ app.get('/*', function (req, res) {
           <RoutingContext {...renderProps} />
       </Provider>
     );
-
-        //This method waits for all render component promises to resolve before returning to browser
-        //fetchComponentDataBeforeRender(store.dispatch, renderProps.components, renderProps.params)
-          //.then(html => {
     const componentHTML = renderToString(InitialView);
     const initialState = store.getState();
-    res.status(200).end(renderFullPage(componentHTML,initialState))
-          //})
-          //.catch(err => {
-            //console.log(err)
-            //res.end(renderFullPage("",{}))
-          //});
+    res.send(renderFullPage(componentHTML,initialState))
+
   });
 
 });
-const port = process.env.PORT || 8080;
+
 
 const server = app.listen(port, function () {
   console.log('Example app listening at http://%s:%s', '0.0.0.0', port);

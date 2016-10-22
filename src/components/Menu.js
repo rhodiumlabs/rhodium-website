@@ -10,7 +10,7 @@ export default class Menu extends Component {
   }
   componentDidMount() {
     document.addEventListener("scroll", (e) => {
-      if(document.body.scrollTop > 56) {
+      if(document.body.scrollTop > 56 && this.props.route !== '/process') {
         this.setState({scrolled:true});
       }
       else {
@@ -44,7 +44,7 @@ export default class Menu extends Component {
                     to={route.path} className="hvr-underline-from-left">{route.path.replace("/","")}</Link>
                 </li>
               )}
-              <li> <a    className="hvr-underline-from-left" href="https://blog.rhodium.io">blog</a></li>
+              <li> <a className="hvr-underline-from-left" href="https://blog.rhodium.io">blog</a></li>
             </ul>
           </div>
           </div>

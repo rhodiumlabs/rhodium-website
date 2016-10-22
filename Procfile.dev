@@ -1,0 +1,2 @@
+assets: node devServer.js
+server: NODE_ENV="dev" node index.js

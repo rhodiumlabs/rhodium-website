@@ -1,52 +1,31 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {VelocityTransitionGroup} from 'velocity-react';
-import TextAlternator from '../components/TextAlternator';
 import 'gsap/src/minified/plugins/TextPlugin.min';
-import { TextPlugin, TimelineLite} from "gsap";
+import { TextPlugin, TimelineLite} from 'gsap';
 export default class Tagline extends Component {
   constructor(props) {
     super(props);
-
     let self = this;
-    this.state = {done:false}
+    this.state = {done:false};
 
     this.set1 = [
-      'artists',
-      'inventors',
-      'hobbyists',
-      'engineers',
-      'experts',
-      'instructors',
       'technologists',
-      'dreamers',
-      'creators'
+      'mathematicians',
+      'engineers'
     ];
 
     this.set2 = [
       '',
-      'design strategies',
-      'hack prototypes',
-      'build hardware',
-      'develop products',
-      'engage communities',
-      'create campaigns',
-      'deliver applications',
-      'curate experiences',
-      'uncover possibilities'
+      'ambient intelligence',
+      'blockchain',
+      'decentralized systems',
     ];
 
     this.set3 = [
       '',
-      'organizations',
-      'banking',
-      'startups',
       'healthcare',
-      'education',
-      'insurance',
-      'nonprofits',
-      'society',
-      'your industry'
+      'finance',
+      'education'
     ];
     this.tlp1 = new TimelineLite();
   }
@@ -106,17 +85,17 @@ export default class Tagline extends Component {
             </div>
           </div>
           <div ref={(ref) => this.part2 = ref} style={{opacity:'0'}}>
-          <span > who </span>
+          <span > who specialize in </span>
 
             <div className='alternator' style={{textAlign:'left'}}>
               <ul  ref={(ref) => this.box2 = ref}>
-                {this.set2.map(word => <li><p>{word}</p></li>)}
+                {this.set2.map(word => <li className={'animations glitch'}><p>{word}</p></li>)}
               </ul>
 
             </div>
           </div>
           <div ref={(ref) => this.part3 = ref} style={{opacity:'0'}}>
-          <span> for the future of </span>
+          <span> for </span>
           <div className='alternator' style={{textAlign:'left'}}>
             <ul ref={(ref) => this.box3 = ref}>
               {this.set3.map(word => <li><p>{word}</p></li>)}

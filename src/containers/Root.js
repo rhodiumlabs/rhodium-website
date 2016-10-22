@@ -13,20 +13,11 @@ export class Root extends Component {
   render() {
     const { store, global, menuActions } = this.props;
     return (
-      <div>
+      <div className="Site" style={{height: '100vh'}}>
 
-        
-      <div className="Site">
+          <Menu open={global.menuOpened} route={this.props.location.pathname} actions={menuActions} />
 
-        <main className="Site-content"> 
-          <Menu open={global.menuOpened} actions={menuActions} />
-
-          
           {this.props.children}
-
-        </main>
-        <Footer/>
-      </div>
       </div>
     );
   }
