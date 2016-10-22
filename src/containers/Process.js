@@ -119,6 +119,21 @@ export default class Process extends Component {
                                0;
     }
 
+    const stylesPageSections = {
+      yellow: {
+        color: '#1A3445',
+        background: '#E9C77B'
+      },
+      pink: {
+        color: 'white',
+        background: '#E2B49A'
+      },
+      blue: {
+        color: '#1A3445',
+        background: '#C4D4E0'
+      }
+    };
+
     return (
       <div
           ref={(ref) => this.wrapper = ref}
@@ -153,160 +168,91 @@ export default class Process extends Component {
             <div className="arrow bounce"></div>
           </section>
 
-
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#E9C77B'
-              }}
-              title=""
-              header={true}>
+          <PageSection style={stylesPageSections.yellow} title="" header={true}>
             We work with stakeholders of established companies to
             uncover the changes and  opportunities that emerging tech will
             have on their industries and where to find more information.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#E9C77B'
-              }}
-              title="explore labs">
+          <PageSection style={stylesPageSections.yellow} title="explore labs">
             Imagine your team controlling a drone with wearable
             technology competing against a bot. You don’t sit and listen to
             lectures on why technology matters - you experience it.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#E9C77B'
-              }}
-              title="seminars">
+          <PageSection style={stylesPageSections.yellow} title="seminars">
             With an in-depth look at smart contracts, cryptocurrencies,
             and connected devices, these one hour seminars create an space for
             you to learn why they are affecting your industry.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#E9C77B'
-              }}
-              title="workshop">
+          <PageSection style={stylesPageSections.yellow} title="workshop">
             From blockchain to AI, haptics, and ambient computing, these
             three hour hands on experiences are designed to immerse you in the
             inner workings of these fields and apply new concepts to your
             experience.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: 'white',
-                background: '#E2B49A'
-              }}
-              header={true}>
+          <PageSection style={stylesPageSections.pink} header={true}>
             We dive deep into your industry's potential. You take
             advantage of upcoming opportunities and face challenges head on
             with our advice.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: 'white',
-                background: '#E2B49A'
-              }}
-              title="awareness">
+          <PageSection style={stylesPageSections.pink} title="awareness">
             We identify and develop business innovation using analytics
             and immersion research. We work with you to understand the
             industry and users through trends, human factors research,
             attribute mapping, and cultural validation.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: 'white',
-                background: '#E2B49A'
-              }}
-              title="strategize">
+          <PageSection style={stylesPageSections.pink} title="strategize">
             We define a strategy by diagnosing the problems, set guiding
             policies, and plan coherent actions so you achieve big leaps
             forward when the opportunity arises.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: 'white',
-                background: '#E2B49A'
-              }}
-              title="industry">
+          <PageSection style={stylesPageSections.pink} title="industry">
             If your company is considering a new implementations using
             these technologies, we are here to help. We work with you to
             create the best team, make technical choices, and conduct your
             business throughout the field.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: 'white',
-                background: '#E2B49A'
-              }}
-              title="research">
+          <PageSection style={stylesPageSections.pink} title="research">
             Not all ideas or problems have been solved. Our team work
             together with recognized industry professionals to publish papers
             or use as supporting materials to fund upcoming projects.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#C4D4E0'
-              }}
-              title=""
-              header={true}>
+          <PageSection style={stylesPageSections.blue} title="" header={true}>
             We help you construct functional prototypes while testing in
             an agile cycle. From sprinting to the most innovative ideas or
             end to end productization, we help you create the next best
             solution.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#C4D4E0'
-              }}
-              title="hackathons">
+          <PageSection style={stylesPageSections.blue} title="hackathons">
             Hackathons and sprints give you the freedom to experiment
             with new technologies in established industries. You can go from
             idea to working prototype with our guides and mentors to discover
             the future of your organization’s industry
           </PageSection>
 
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#C4D4E0'
-              }}
-              title="experiment">
+          <PageSection style={stylesPageSections.blue} title="experiment">
             Our team help you uncover and build specific proof of
             concepts for your business’s needs and strategy. We work with you
             to gain insight, invent and implement solutions in a fast-paced
             setting.
           </PageSection>
 
-          <PageSection
-              style={{
-                color: '#1A3445',
-                background: '#C4D4E0'
-              }}
-              title="engineer">
+          <PageSection style={stylesPageSections.blue} title="engineer">
             We apply extreme-programming and use an rapid, iterative
             approach to building products. By architecting your product and
             using our insights we help you set and achieve your goals. This
             service requires serious commitment from you, as it is a
             extraordinarily technical and advanced offering.
           </PageSection>
-
 
           <section
               className={'panel'}
