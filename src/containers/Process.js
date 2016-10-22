@@ -7,19 +7,39 @@ import {Link} from 'react-router';
 
 
 const PageSection = (props) => {
-  const contentGenerator = (color, background, title, _content, header=false) => {
-      return <section className='panel' style={{position:'relative', height: window.innerHeight + 'px',color:color, background:background}}>
-          <div className='mainpage container'>
-            {header ? <div className="twelve columns content-holder header-page"><h6><span>{props.children}</span></h6></div> :
-              [<div className="four columns content-holder "><h3 style={{color:color}}>{title}</h3></div>,
-              <div className="eight columns content-holder"><h6>{content}</h6></div>]
-            }
-          </div>
-      </section>
-  }
-
-  return contentGenerator(props.color, props.background, props.title, props.content, props.header ? true : false);
-}
+  const inner = props.header ? (
+      <div className="twelve columns content-holder header-page">
+        <h6>
+          <span>
+            {props.children}
+          </span>
+        </h6>
+      </div>
+    ) : [
+      <div className="four columns content-holder">
+        <h3 style={{color: props.style.color}}>
+          {props.title}
+        </h3>
+      </div>,
+      <div className="eight columns content-holder">
+        <h6>
+          {props.children}
+        </h6>
+      </div>
+    ];
+  return (
+    <section
+        className='panel'
+        style={Object.assign({
+          position: 'relative',
+          height: window.innerHeight + 'px',
+        }, props.style)}>
+      <div className='mainpage container'>
+        {inner}
+      </div>
+    </section>
+  );
+};
 
 
 export default class Process extends Component {
@@ -142,8 +162,13 @@ export default class Process extends Component {
           </section>
 
 
-
-          <PageSection color="#1a3445" background="#E9C77B" title="" header={true}>
+          <PageSection
+              style={{
+                color: '#1A3445',
+                background: '#E9C77B'
+              }}
+              title=""
+              header={true}>
             Vie work with stakeholders of established companies to
             uncover the changes and  opportunities that emerging tech will
             have on their industries and where to find more information.
