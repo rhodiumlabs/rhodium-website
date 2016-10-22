@@ -110,10 +110,13 @@ export default class Process extends Component {
     }
 
     const percentageNav = (start, end) => {
-      if(!this.state.currentPage) return 0;
-      if(this.state.currentPage > end) return 16;
-      if(this.state.currentPage >= start) return 16*((this.state.currentPage-start)/(end-start));
-      return 0
+      const curr = this.state.currentPage;
+      const total = 16;
+      const ratio = (curr - start) / (end - start);
+      return (! curr)        ? 0             :
+             (curr > end)    ? total         :
+             (curr >= start) ? total * ratio :
+                               0;
     }
 
     return (
