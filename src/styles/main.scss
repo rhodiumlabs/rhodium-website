@@ -48,25 +48,9 @@ body {
       mix-blend-mode:unset;
     }
     .alternator {
-      text-align: center;
       color: #E9C77B;
-      display: inline-block;
-      overflow:hidden;
-      height:5.0rem;
-      margin-bottom: -1.5rem;
-      ul {
-        margin:0;
-        padding-left:0;
-        li {
-        margin-bottom:0;
-          p {
-            min-height: 5.0rem;
-            line-height: 5.0rem;
-            margin-bottom:0;
-            font-size: 3.2rem;
-          }
-        }
-      }
+      display:inline-block;
+
     }
   }
   .tagline {
