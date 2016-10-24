@@ -55,7 +55,7 @@
     "react-transform-hmr": "^1.0.4",
     "react-typewriter": "^0.4.1",
     "react-typist": "^0.3.0",
-    "redux-thunk": "^1.0.3",
+    "redux-thunk": "^1.0.3"
   },
   "engines": {
     "node": ">=6.2.2"
