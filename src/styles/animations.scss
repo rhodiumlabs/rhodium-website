@@ -2,6 +2,33 @@
   position: relative;
   margin: 0 auto;
   padding-right: 14px;
+  z-index:24;
+}
+.glitch-before {
+  position: absolute;
+  margin-left: -2px;
+  text-shadow: 1px 0 #EEE;
+  display:inline-block;
+  top: 0;
+  background:white;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 7s infinite linear alternate-reverse;
+  z-index:23;
+}
+.glitch-after {
+  position: absolute;
+  margin-left: 2px;
+  text-shadow: -1px 0 #CCC;
+  top: 0;
+  background-blend-mode: invert;
+
+  display:inline-block;
+  background:white;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 4s infinite linear alternate-reverse;
+  z-index:25;
 }
 
 @keyframes noise-anim {
@@ -69,18 +96,6 @@
     clip: rect(70px, 9999px, 10px, 0);
   }
 }
-.glitch:after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  text-shadow: -1px 0 #CCC;
-  top: 0;
-
-  background:white;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim 2s infinite linear alternate-reverse;
-}
 
 @keyframes noise-anim-2 {
   0% {
@@ -146,15 +161,4 @@
   100% {
     clip: rect(78px, 9999px, 47px, 0);
   }
-}
-.glitch:before {
-  content: attr(data-text);
-  position: absolute;
-  left: -2px;
-  text-shadow: 1px 0 #EEE;
-  top: 0;
-  background:white;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim-2 4s infinite linear alternate-reverse;
 }

@@ -42,8 +42,12 @@ const renderFullPage = (html, initialState) => {
         <meta name="msapplication-square310x310logo" content="/favico/mstile-310x310.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="rhodium is a technology studio with expertise in ambient intelligence and decentralized systems. We assemble multidisciplinary teams to tackle challenges in healthcare, education, and financial services.">
+          
+        <!-- for Facebook -->          
+        <meta property="og:image" content="/favico/mstile-310x310.png" />
+
+
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
         ${(process.env.NODE_ENV === 'production') ? '<link rel="stylesheet" href="/dist/styles.css">' : '' }
         <script>
