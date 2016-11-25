@@ -61,7 +61,7 @@ export default class People extends Component {
             <h1>people</h1>
             <div className="people">
               {this.peoples.map((people,i) =>
-                <div className="person">
+                (i!==1) ? <div className="person">
                   <ProfileHead
                     pos={i}
                     key={i}
@@ -69,7 +69,7 @@ export default class People extends Component {
                     people={people}
                     last={(i+1) % 5 == 0 }
                     image={(i < 5)} />
-                </div>)}
+                </div> : null)}
             </div>
           </div>
         </div>
