@@ -24,9 +24,9 @@ export default class Tagline extends Component {
     ];
 
     this.set3 = [
-      'healthcare',
+      'health',
       'finance',
-      'education'
+      'risk'
     ];
     this.tlp1 = new TimelineLite();
   }

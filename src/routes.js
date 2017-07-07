@@ -14,7 +14,7 @@ const routes = {
   childRoutes: [
     {path:'/about', component: About},
     {path:'/people',  component: People},
-    {path:'/process', component: Process},
+/*    {path:'/process', component: Process}, */
     {path:'/contact', component: Contact},
   ]
 }
