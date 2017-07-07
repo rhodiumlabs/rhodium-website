@@ -58,7 +58,7 @@ const renderFullPage = (html, initialState) => {
         ga('create', 'UA-82046656-1', 'auto');
         ga('send', 'pageview');
         </script>
-        <!-- Start of HubSpot Embed -->
+	<!-- Start of HubSpot Embed -->
           <script type="text/javascript" src="//js.hs-scripts.com/2707047.js" id="LeadinEmbed-2707047" crossorigin="use-credentials" async defer></script>
         <!-- End of HubSpot Embed -->
       </head>

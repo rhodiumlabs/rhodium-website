@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import 'gsap/src/minified/plugins/TextPlugin.min';
-import { TextPlugin, TimelineLite} from 'gsap';
+import { TextPlugin, TweenLite, TimelineLite} from 'gsap';
+import 'gsap/TextPlugin'; 
+
 export default class Tagline extends Component {
   constructor(props) {
     super(props);
